@@ -38,7 +38,6 @@ if(LEVEL EQUAL 1)
   find_package(JPEG CONFIG REQUIRED)
   # }
 
-  hunter_add_package(cvmatio)
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
   hunter_add_package(Eigen)
   hunter_add_package(PNG)
@@ -49,6 +48,7 @@ if(LEVEL EQUAL 1)
 elseif(LEVEL EQUAL 2)
   hunter_add_package(OpenCV)
 elseif(LEVEL EQUAL 3)
+  hunter_add_package(cvmatio) # depends on OpenCV
   hunter_add_package(half)
   hunter_add_package(GTest)
   hunter_add_package(thread-pool-cpp)
