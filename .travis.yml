@@ -129,5 +129,4 @@ script:
     - >
       build.py
       --toolchain ${TOOLCHAIN}
-      --config ${CONFIG}
       --verbose
