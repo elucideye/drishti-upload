@@ -36,6 +36,10 @@ addons:
       - libstdc++6:i386
       - zlib1g:i386
 
+env:
+  global:
+    - secure: "tv5u8S/L3tGEHTf/QtD7eiHo5VKa7RaBVFiNvLI8xzmxgOPbuzqBayyY1Y81Un+TOWc1+BYxDjC+da2KZRidfCKrrJLDs1shwXku1oCkJbddshSoh7RG8dDo1tHT+jwhwRsR+Nfb9aRE67I7PcrzoS9/kx4IeEEA3qDI05leF9sTno34oPapr6/NMh/nGO5i0mKb/APT273Gtt4vCK6ztZ8tnY3CsXpLLrB5CBYIYC3RfjcSD33h1D/rfngbvAkKf//N6OqOKfLDoYja3AM3Q1fMQAfuGpGIKFJcZetoYB1ILrCpSkNqJd79MmofH2FKKBAlTFZ+UEqww6pFiCtR9dVz6N58es6cYG1rclCFSVNFXvnfv82BGY8SekoiwlYlihbqGKqLNCFj3SIiu8yNbiJV0Q1DzbFI+K2R6Hbo1mxj4azc5QiXscNfKH/NtcKmWRrnagl0n7U27RN9KivNSl4qrTMY2J1sp8+R/vOni1V4MSf8SBOxaIBcV04choRMn+0VYw3TZnFsZdAL4JDePxmqSABrMIjS6KbHMBQfa4HpMGy6n7jvU1vaYoEi0K/RUoPX2/sQdSDHQJvEcED3VIgGSsrBVUYoO6ajPTPW0sDpHcE7fYy61FzvdwhiPTG0VnX9tDuVbd52j4GcTjmNgx+mJhVtk7VeT5jJ+0sz6Q0="
+
 matrix:
   include:
     # LEVEL=1 {
