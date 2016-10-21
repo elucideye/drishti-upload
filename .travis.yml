@@ -130,7 +130,18 @@ install:
   - export ANDROID_NDK_r10e="`pwd`/_ci/android-ndk-r10e"
 
 script:
-    - >
-      build.py
-      --toolchain ${TOOLCHAIN}
-      --verbose
+  # Build dependencies
+  - >
+    build.py
+    --toolchain ${TOOLCHAIN}
+    --verbose
+
+  # Upload to server
+  - git clone https://github.com/ruslo/hunter
+  - >
+    ./hunter/maintenance/upload-cache-to-github.py
+    --username jalandhara
+    --repo-owner elucideye
+    --repo hunter-cache
+    --cache-dir /home/travis/.hunter/_Base/Cache
+    --temp-dir /home/travis/__TEMP_HUNTER
