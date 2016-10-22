@@ -38,7 +38,7 @@ addons:
 
 env:
   global:
-    - secure: "tY4bMKFD/1/wIsDD4mYaDfv/HYZiZim1CPWP3DvG8A4f315b4ks3Jg6gZv9zWczEGIsT54XCu+gAoJsfuF/OvOkAuNLkY1YYRpWuKvCHvZmXkD8dLejGmpEc57Q7Gh6bMnb0m44J67FH1YCXnOaW/vklAJF7RXamoyZLoN+UXEQ9IBqTuWrCGYUJNHDOq8rb2E9mdM32wzxic75z8OjZzSqMQM4ycd8kSPndyJuRV2GsJ7dlnG7XZe4QinfRrN0b/61715OdtluMg08IUk4MMMcsOxfqJVItDYcY/c+6xi67OmMX/FeKUQAfCKFMQUx6WchmmNhTIoZqO/ZXVmBQKEltS1KEmLN5qxoL+pLi+FloOVxYjgtRel1Y18W9+jogLP1HLut/k9MIGr0fFjD6eiX36JzAY2yrp8MPS4Xf8OtvuirQcoskY0/k3K4TCq6frTJRsneurgt6bi9CNi3hRNztYpOZy31ILu9EZZGGKTRVPiRN1am1RBIjdGig7T6smJxN568BJ+Z9QGZXddQqjQIXr/QZpCjihAqij7STdLhuiyoq+A+qQjrQhoYxLXDvXXhM9LY09B08SuNWAtNRhEwjlmiS2Vh4EL/1e2TE04LhTGZ1f5FzGRSuhCup+YxJOQ82lDCC+6ziEV8TZB5EhFO6JgySksV8/HPgiXT97mY="
+    - secure: "q/neVq1YG2zyoAYLDcSZ+ZwR6Rhi2AZnELjN/9xHvSy3V+R64aNpvoYDFKXlB2BMCZ6XPoYSYFuz0J9eCr0gu75mTTb7KYn0PzrBc1/CzxNr4wQNhB3Prv6do9O6yFYEj62lflnweE7aTtxggqe9V8HgnzIuxDI/WBSUlh6duQSR7le0O6sD+XAt7OAWAiVsaQRpfwl9t3epTgjG+PnrB/SuCM4/RoYxGVVuBjD4v05k8u7fBtaBM5fb23ymmk+kJk/2VceqAN3zJIxx6HQEh+mYNO2Rj1wUJCSq7/6RJLu/jdRP+xfxZmqPM2jo3CyLQdjw6aGPVRKF7UmrRBV+velLVYWBrhZL33wCPtA3EFKbiUNQV1Qt165z/bO2xGMf5E339/DkiV7ZPBQ6cXHnEc2yz1YqQ6wBMDd2lFqgaptvmSC1CYtsYNpNoFZ/4Y3Oks8FgJAn7zwp2aHXytfeWy4Koa3UD22gQgqfGFH5Q/sFGT+CWI3jpMqVmsE6wEz9wfzvy16tAEj34wnZypq+k4JkwVYVDimJzkaEhLhF3q3kuuDxmd71vO2dXANIN28hPW+PfS1YseKm0PuYXSMhotzVh1B8Q11GzessDUk13GqEDebpwVn8VwTW5G4IadfpDa0AwwKUIpN0YmY6b1uphYNXFj8vMGQmP+mkBttKlyQ="
 
 matrix:
   include:
@@ -140,7 +140,7 @@ script:
   - git clone https://github.com/ruslo/hunter
   - >
     ./hunter/maintenance/upload-cache-to-github.py
-    --username jalandhara
+    --username ingenue
     --repo-owner elucideye
     --repo hunter-cache
     --cache-dir /home/travis/.hunter/_Base/Cache
