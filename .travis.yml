@@ -140,7 +140,7 @@ script:
   - git clone https://github.com/ruslo/hunter
   - >
     ./hunter/maintenance/upload-cache-to-github.py
-    --username ingenue
+    --username jalandhara
     --repo-owner elucideye
     --repo hunter-cache
     --cache-dir /home/travis/.hunter/_Base/Cache
