@@ -143,5 +143,5 @@ script:
     --username ingenue
     --repo-owner elucideye
     --repo hunter-cache
-    --cache-dir /home/travis/.hunter/_Base/Cache
-    --temp-dir /home/travis/__TEMP_HUNTER
+    --cache-dir ${HOME}/.hunter/_Base/Cache
+    --temp-dir ${HOME}/__TEMP_HUNTER
