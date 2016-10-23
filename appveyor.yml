@@ -4,8 +4,26 @@ environment:
       secure: iJyVR7z6BkcqxkctwnDldPxLBNLKfO1qD3EchXiH0fimfDx1oq2gGQyfG4/NtfGX
 
   matrix:
+    # LEVEL=1 {
     - TOOLCHAIN: "vs-14-2015"
+      LEVEL=1
     - TOOLCHAIN: "vs-14-2015-win64"
+      LEVEL=1
+    # }
+
+    # LEVEL=2 {
+    - TOOLCHAIN: "vs-14-2015"
+      LEVEL=2
+    - TOOLCHAIN: "vs-14-2015-win64"
+      LEVEL=2
+    # }
+
+    # LEVEL=3 {
+    - TOOLCHAIN: "vs-14-2015"
+      LEVEL=3
+    - TOOLCHAIN: "vs-14-2015-win64"
+      LEVEL=3
+    # }
 
 install:
   # Python 3
