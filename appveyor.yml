@@ -3,7 +3,6 @@ environment:
     GITHUB_USER_PASSWORD:
       secure: iJyVR7z6BkcqxkctwnDldPxLBNLKfO1qD3EchXiH0fimfDx1oq2gGQyfG4/NtfGX
 
-environment:
   matrix:
     - TOOLCHAIN: "vs-14-2015"
     - TOOLCHAIN: "vs-14-2015-win64"
@@ -48,3 +47,7 @@ build_script:
   # Upload to server
   - cmd: git clone https://github.com/ruslo/hunter
   - cmd: python %pwd%\hunter\maintenance\upload-cache-to-github.py --username jalandhara --repo-owner elucideye --repo hunter-cache --cache-dir C:/Users/appveyor/.hunter/_Base/Cache --temp-dir C:/Users/appveyor/__TEMP_HUNTER
+
+branches:
+  except:
+    - /^pr\..*/
