@@ -1,7 +1,7 @@
 environment:
   global:
     GITHUB_USER_PASSWORD:
-      secure: uW6WWlvCt7CRvvdO9ePjbymPcPNuV1C6HGF8u7Ey6EI=
+      secure: iJyVR7z6BkcqxkctwnDldPxLBNLKfO1qD3EchXiH0fimfDx1oq2gGQyfG4/NtfGX
 
 environment:
   matrix:
