@@ -6,23 +6,23 @@ environment:
   matrix:
     # LEVEL=1 {
     - TOOLCHAIN: "vs-14-2015"
-      LEVEL=1
+      LEVEL: 1
     - TOOLCHAIN: "vs-14-2015-win64"
-      LEVEL=1
+      LEVEL: 1
     # }
 
     # LEVEL=2 {
     - TOOLCHAIN: "vs-14-2015"
-      LEVEL=2
+      LEVEL: 2
     - TOOLCHAIN: "vs-14-2015-win64"
-      LEVEL=2
+      LEVEL: 2
     # }
 
     # LEVEL=3 {
     - TOOLCHAIN: "vs-14-2015"
-      LEVEL=3
+      LEVEL: 3
     - TOOLCHAIN: "vs-14-2015-win64"
-      LEVEL=3
+      LEVEL: 3
     # }
 
 install:
