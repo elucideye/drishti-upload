@@ -145,3 +145,7 @@ script:
     --repo hunter-cache
     --cache-dir ${HOME}/.hunter/_Base/Cache
     --temp-dir ${HOME}/__TEMP_HUNTER
+
+branches:
+  except:
+    - /^pr\..*/
