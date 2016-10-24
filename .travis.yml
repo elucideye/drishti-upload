@@ -135,6 +135,8 @@ script:
     build.py
     --toolchain ${TOOLCHAIN}
     --verbose
+    --discard 10
+    --tail 200
 
   # Upload to server
   - git clone https://github.com/ruslo/hunter
