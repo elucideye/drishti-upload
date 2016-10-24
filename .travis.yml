@@ -54,7 +54,7 @@ matrix:
     - os: osx
       env: TOOLCHAIN=osx-10-11 LEVEL=1
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3 LEVEL=1
+      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=1
     - os: osx
       env: TOOLCHAIN=osx-10-11-sanitize-address LEVEL=1
     - os: osx
@@ -74,7 +74,7 @@ matrix:
     - os: osx
       env: TOOLCHAIN=osx-10-11 LEVEL=2
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3 LEVEL=2
+      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=2
     - os: osx
       env: TOOLCHAIN=osx-10-11-sanitize-address LEVEL=2
     - os: osx
@@ -94,7 +94,7 @@ matrix:
     - os: osx
       env: TOOLCHAIN=osx-10-11 LEVEL=3
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3 LEVEL=3
+      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=3
     - os: osx
       env: TOOLCHAIN=osx-10-11-sanitize-address LEVEL=3
     - os: osx
