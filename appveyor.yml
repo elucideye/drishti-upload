@@ -5,23 +5,23 @@ environment:
 
   matrix:
     # LEVEL=1 {
-    - TOOLCHAIN: "vs-14-2015"
+    - TOOLCHAIN: "vs-14-2015-sdk-8-1"
       LEVEL: 1
-    - TOOLCHAIN: "vs-14-2015-win64"
+    - TOOLCHAIN: "vs-14-2015-win64-sdk-8-1"
       LEVEL: 1
     # }
 
     # LEVEL=2 {
-    - TOOLCHAIN: "vs-14-2015"
+    - TOOLCHAIN: "vs-14-2015-sdk-8-1"
       LEVEL: 2
-    - TOOLCHAIN: "vs-14-2015-win64"
+    - TOOLCHAIN: "vs-14-2015-win64-sdk-8-1"
       LEVEL: 2
     # }
 
     # LEVEL=3 {
-    - TOOLCHAIN: "vs-14-2015"
+    - TOOLCHAIN: "vs-14-2015-sdk-8-1"
       LEVEL: 3
-    - TOOLCHAIN: "vs-14-2015-win64"
+    - TOOLCHAIN: "vs-14-2015-win64-sdk-8-1"
       LEVEL: 3
     # }
 
