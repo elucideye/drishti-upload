@@ -29,6 +29,8 @@ macro(drishti_set_opencv_cmake_args_osx)
       HAVE_CUBLAS=NO
       HAVE_CUDA=NO
 
+      WITH_QTKIT=NO
+
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
       WITH_TBB=OFF            # "Include Intel TBB support"
       WITH_1394=OFF           # "Include IEEE1394 support"
