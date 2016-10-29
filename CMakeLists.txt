@@ -9,8 +9,8 @@ include("cmake/HunterGate.cmake")
 list(APPEND HUNTER_CACHE_SERVERS "https://github.com/elucideye/hunter-cache")
 
 HunterGate(
-  URL "https://github.com/ruslo/hunter/archive/v0.16.20.tar.gz"
-  SHA1 "fedccd8d37364b0593c9b87d4d3ea41d51be3a9f"
+  URL "https://github.com/ruslo/hunter/archive/v0.16.21.tar.gz"
+  SHA1 "9fc322a343686de97e32feb4b7445133253ee321"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
   )
 
