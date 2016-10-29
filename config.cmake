@@ -42,7 +42,7 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_EIGEN=OFF  ### for convenient linking
 )
 
-hunter_config(OpenCV VERSION 3.0.0-p6 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
+hunter_config(OpenCV VERSION 3.0.0-p7 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 
 ### Boost
 hunter_config(Boost VERSION 1.58.0-p1 CMAKE_ARGS IOSTREAMS_NO_BZIP2=1 )
