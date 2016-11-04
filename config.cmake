@@ -47,6 +47,7 @@ hunter_config(OpenCV VERSION 3.0.0-p7 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 ### Boost
 hunter_config(Boost VERSION 1.58.0-p1 CMAKE_ARGS IOSTREAMS_NO_BZIP2=1 )
 
+hunter_config(ogles_gpgpu VERSION 0.1.3)
 hunter_config(xgboost VERSION 0.40-p4 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
 hunter_config(PNG VERSION 1.6.26-p1)
 hunter_config(TIFF VERSION 4.0.2-p3)
@@ -55,7 +56,7 @@ hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 18.14-p1)
 hunter_config(Eigen VERSION 3.2.4-p0)
 hunter_config(spdlog VERSION 1.0.0-p0)
-hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p3)
+hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
 
 # From hunter/cmake/configs/default.cmake
 if(ANDROID)
