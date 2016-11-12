@@ -25,6 +25,10 @@ environment:
       LEVEL: 3
     # }
 
+# https://www.appveyor.com/docs/how-to/rdp-to-build-worker/
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+    
 install:
   # Python 3
   - cmd: set PATH=C:\Python34-x64;C:\Python34-x64\Scripts;%PATH%
@@ -69,3 +73,7 @@ build_script:
 branches:
   except:
     - /^pr\..*/
+
+# https://www.appveyor.com/docs/how-to/rdp-to-build-worker/
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))    
