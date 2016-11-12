@@ -9,8 +9,10 @@ include("cmake/HunterGate.cmake")
 list(APPEND HUNTER_CACHE_SERVERS "https://github.com/elucideye/hunter-cache")
 
 HunterGate(
-  URL "https://github.com/ruslo/hunter/archive/v0.16.25.tar.gz"
-  SHA1 "e02c1b104278f7fd24b4c3a3802013c5e1740ad0"
+  #URL "https://github.com/ruslo/hunter/archive/v0.16.24.tar.gz"
+  #SHA1 "00ab627d3d4fe5151e15b6ab2b1b1da17650984a"    
+  URL "https://github.com/headupinclouds/hunter/archive/ogles_gpgpu.msvc.fix2.tar.gz"
+  SHA1 "f26bd0d733aa1be71e8353017ce10719e4daa152"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
   )
 
@@ -48,10 +50,10 @@ elseif(LEVEL EQUAL 3)
   hunter_add_package(GTest)
   hunter_add_package(thread-pool-cpp)
   hunter_add_package(xgboost)
-  if(NOT MSVC)
-    # TODO: ogles_gpgpu is currently not building on windows hosts
-    hunter_add_package(ogles_gpgpu)
+  if(MSVC)
+    hunter_add_package(glew)
   endif()
+  hunter_add_package(ogles_gpgpu)
 else()
   message(FATAL_ERROR "Unexpected value of LEVEL: '${LEVEL}'")
 endif()
