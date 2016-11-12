@@ -9,8 +9,8 @@ include("cmake/HunterGate.cmake")
 list(APPEND HUNTER_CACHE_SERVERS "https://github.com/elucideye/hunter-cache")
 
 HunterGate(
-  URL "https://github.com/ruslo/hunter/archive/v0.16.24.tar.gz"
-  SHA1 "00ab627d3d4fe5151e15b6ab2b1b1da17650984a"  
+  URL "https://github.com/ruslo/hunter/archive/v0.16.25.tar.gz"
+  SHA1 "e02c1b104278f7fd24b4c3a3802013c5e1740ad0"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
   )
 
@@ -33,11 +33,6 @@ if(is_empty)
 endif()
 
 if(LEVEL EQUAL 1)
-  # Workaround for old broken version {
-  hunter_add_package(Jpeg)
-  find_package(JPEG CONFIG REQUIRED)
-  # }
-
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
   hunter_add_package(Eigen)
   hunter_add_package(PNG)
