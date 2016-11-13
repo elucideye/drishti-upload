@@ -4,13 +4,15 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
 include("cmake/HunterGate.cmake")
 ### Hunter snapshot that will be used ###
-
 # drishti specific hunter cache pacakges:
 list(APPEND HUNTER_CACHE_SERVERS "https://github.com/elucideye/hunter-cache")
 
+include(drishti_set_hunter_gate)
+drishti_set_hunter_version(DRISHTI_HUNTER_GATE_URL DRISHTI_HUNTER_GATE_SHA1)
+
 HunterGate(
-  URL "https://github.com/ruslo/hunter/archive/v0.16.27.tar.gz"
-  SHA1 "19973adf6829011eb8102a554ef78f248423a0a7"
+  URL "${DRISHTI_HUNTER_GATE_URL}"
+  SHA1 "${DRISHTI_HUNTER_GATE_SHA1}"
   FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
   )
 
@@ -40,6 +42,7 @@ if(LEVEL EQUAL 1)
   hunter_add_package(dlib)
   hunter_add_package(spdlog)
   hunter_add_package(cereal)
+  hunter_add_package(flatbuffers)
 elseif(LEVEL EQUAL 2)
   hunter_add_package(OpenCV)
 elseif(LEVEL EQUAL 3)
