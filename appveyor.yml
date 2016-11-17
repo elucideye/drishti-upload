@@ -39,9 +39,9 @@ install:
   - cmd: pip install requests
 
   # Install latest Polly toolchains and scripts
-  - cmd: appveyor DownloadFile https://github.com/ruslo/polly/archive/master.zip
-  - cmd: 7z x master.zip
-  - cmd: set POLLY_ROOT=%cd%\polly-master
+  - cmd: appveyor DownloadFile https://github.com/ruslo/polly/archive/new.android.zip
+  - cmd: 7z x new.android.zip
+  - cmd: set POLLY_ROOT=%cd%\polly-new.android
 
   # Install dependencies (CMake, Ninja)
   - cmd: python %POLLY_ROOT%\bin\install-ci-dependencies.py
