@@ -4,5 +4,5 @@ macro(drishti_set_hunter_version DRISHTI_HUNTER_GATE_URL DRISHTI_HUNTER_GATE_SHA
 
   # Temporary release for cereal update: Archive::is_{loading,saving}
   set(${DRISHTI_HUNTER_GATE_URL} "https://github.com/headupinclouds/hunter/archive/v0.16.33-rc1.tar.gz")
-  set(${DRISHTI_HUNTER_GATE_SHA1} "7dbd9e15317052266dbbb7181f1ba7f08dcda763"")
+  set(${DRISHTI_HUNTER_GATE_SHA1} "7dbd9e15317052266dbbb7181f1ba7f08dcda763")
 endmacro()
