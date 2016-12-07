@@ -77,7 +77,7 @@ matrix:
     - os: osx
       env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=2
     - os: osx
-      osx_image: xcode8.1      
+      osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=2
     - os: osx
       env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=2
@@ -118,9 +118,9 @@ install:
   - if [[ "`uname`" == "Linux" ]]; then travis_retry easy_install3 --user requests==2.10.0; fi
 
   # Install latest Polly toolchains and scripts
-  - wget https://github.com/headupinclouds/polly/archive/custom.zip # for custom toolchains  
-  - unzip custom.zip
-  - POLLY_ROOT="`pwd`/polly-custom"
+  - wget https://github.com/ruslo/polly/archive/master.zip
+  - unzip master.zip
+  - POLLY_ROOT="`pwd`/polly-master"
   - export PATH="${POLLY_ROOT}/bin:${PATH}"
 
   # Install dependencies (CMake, Android NDK)
