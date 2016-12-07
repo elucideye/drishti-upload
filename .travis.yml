@@ -57,7 +57,7 @@ matrix:
       env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=1
     - os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address LEVEL=1
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=1
     - os: osx
       env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=1
     # }
@@ -78,7 +78,7 @@ matrix:
       env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=2
     - os: osx
       osx_image: xcode8.1      
-      env: TOOLCHAIN=osx-10-12-sanitize-address LEVEL=2
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=2
     - os: osx
       env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=2
     # }
@@ -99,7 +99,7 @@ matrix:
       env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=3
     - os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address LEVEL=3
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=3
     - os: osx
       env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=3
     # }
