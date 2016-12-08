@@ -45,63 +45,63 @@ matrix:
     # LEVEL=1 {
     # Linux {
     - os: linux
-      env: TOOLCHAIN=gcc-4-8-pic LEVEL=1
+      env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=1
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=1
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=1
     # }
 
     # OSX {
     - os: osx
-      env: TOOLCHAIN=osx-10-11 LEVEL=1
+      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=1
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=1
+      env: TOOLCHAIN=ios-nocodesign-9-3-device-hid-sections LEVEL=1
     - os: osx
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=1
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=1
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=1
     # }
     # }
 
     # LEVEL=2 {
     # Linux {
     - os: linux
-      env: TOOLCHAIN=gcc-4-8-pic LEVEL=2
+      env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=2
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=2
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=2
     # }
 
     # OSX {
     - os: osx
-      env: TOOLCHAIN=osx-10-11 LEVEL=2
+      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=2
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=2
+      env: TOOLCHAIN=ios-nocodesign-9-3-device-hid-sections LEVEL=2
     - os: osx
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=2
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=2
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=2
     # }
     # }
 
     # LEVEL=3 {
     # Linux {
     - os: linux
-      env: TOOLCHAIN=gcc-4-8-pic LEVEL=3
+      env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=3
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=3
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=3
     # }
 
     # OSX {
     - os: osx
-      env: TOOLCHAIN=osx-10-11 LEVEL=3
+      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=3
     - os: osx
-      env: TOOLCHAIN=ios-nocodesign-9-3-device LEVEL=3
+      env: TOOLCHAIN=ios-nocodesign-9-3-device-hid-sections LEVEL=3
     - os: osx
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=3
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon LEVEL=3
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=3
     # }
     # }
 
