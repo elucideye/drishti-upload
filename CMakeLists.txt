@@ -52,7 +52,7 @@ elseif(LEVEL EQUAL 3)
   hunter_add_package(thread-pool-cpp)
   hunter_add_package(xgboost)
   hunter_add_package(ogles_gpgpu)
-  hunter_add_package(nlohmann-json)
+  hunter_add_package(nlohmann-json) # test
 else()
   message(FATAL_ERROR "Unexpected value of LEVEL: '${LEVEL}'")
 endif()
