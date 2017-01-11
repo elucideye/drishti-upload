@@ -40,10 +40,16 @@ list(APPEND OPENCV_CMAKE_ARGS
   HAVE_OPENCL=OFF
   WITH_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
-)
+  )
+
+# Note: boost_portable_binary_[io]archive incompatibility encountered
+# with upgrade from 1.58.0 to 1.62.0, so boost should stay at 1.58.0
+# until that is resolved.  Most likely those models will be abandoned
+# in favor of cereal.
+set(drishti_boost_version 1.58.0-p1) # 1.62.0
 
 hunter_config(OpenCV VERSION 3.0.0-p8 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
-hunter_config(Boost VERSION 1.62.0 CMAKE_ARGS IOSTREAMS_NO_BZIP2=1 )
+hunter_config(Boost VERSION ${drishti_boost_version} CMAKE_ARGS IOSTREAMS_NO_BZIP2=1)
 hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(xgboost VERSION 0.40-p4 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
 hunter_config(PNG VERSION 1.6.26-p1)
