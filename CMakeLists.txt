@@ -51,6 +51,7 @@ elseif(LEVEL EQUAL 3)
   hunter_add_package(GTest)
   hunter_add_package(thread-pool-cpp)
   hunter_add_package(xgboost)
+  hunter_add_package(cxxopts)
   hunter_add_package(ogles_gpgpu)
   hunter_add_package(nlohmann-json) # test
   if(ANDROID)
