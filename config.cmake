@@ -54,7 +54,7 @@ endif()
 # in favor of cereal.
 set(drishti_boost_version 1.58.0-p1) # 1.62.0
 
-hunter_config(OpenCV VERSION 3.0.0-p9 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
+hunter_config(OpenCV VERSION 3.0.0-p10 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(Boost VERSION ${drishti_boost_version} CMAKE_ARGS IOSTREAMS_NO_BZIP2=1)
 hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
@@ -67,6 +67,6 @@ hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
 hunter_config(GTest VERSION 1.8.0-hunter-p5)
 hunter_config(half VERSION 1.1.0-p1)
-hunter_config(Eigen VERSION 3.3.1-p3)
+hunter_config(Eigen VERSION 3.3.1-p4)
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
