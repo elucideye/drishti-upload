@@ -42,12 +42,6 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_EIGEN=OFF  ### for convenient linking
   )
 
-if(XCODE)
-  list(APPEND OPENCV_CMAKE_ARGS CMAKE_XCODE_ATTRIBUTE_WARNING_CFLAGS=-Wno-narrowing)
-elseif(NOT MSVC)
-  list(APPEND OPENCV_CMAKE_ARGS CMAKE_CXX_FLAGS=-Wno-narrowing)
-endif()
-
 # Note: boost_portable_binary_[io]archive incompatibility encountered
 # with upgrade from 1.58.0 to 1.62.0, so boost should stay at 1.58.0
 # until that is resolved.  Most likely those models will be abandoned
@@ -55,14 +49,14 @@ endif()
 set(drishti_boost_version 1.58.0-p1) # 1.62.0
 
 # Maintain hunter default args (no testing, license name) and eliminate
-# eigen fortrn dependencies 
+# eigen fortrn dependencies
 set(EIGEN_CMAKE_ARGS
   BUILD_TESTING=OFF
-  HUNTER_INSTALL_LICENSE_FILES=COPYING.MPL2    
+  HUNTER_INSTALL_LICENSE_FILES=COPYING.MPL2
   CMAKE_Fortran_COMPILER=OFF
   )
 
-hunter_config(OpenCV VERSION 3.0.0-p10 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
+hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(Boost VERSION ${drishti_boost_version} CMAKE_ARGS IOSTREAMS_NO_BZIP2=1)
 hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
