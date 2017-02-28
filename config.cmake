@@ -55,10 +55,10 @@ endif()
 set(drishti_boost_version 1.58.0-p1) # 1.62.0
 
 # Maintain hunter default args (no testing, license name) and eliminate
-# eigen fortrn dependencies 
+# eigen fortrn dependencies
 set(EIGEN_CMAKE_ARGS
   BUILD_TESTING=OFF
-  HUNTER_INSTALL_LICENSE_FILES=COPYING.MPL2    
+  HUNTER_INSTALL_LICENSE_FILES=COPYING.MPL2
   CMAKE_Fortran_COMPILER=OFF
   )
 
