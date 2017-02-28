@@ -42,12 +42,6 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_EIGEN=OFF  ### for convenient linking
   )
 
-if(XCODE)
-  list(APPEND OPENCV_CMAKE_ARGS CMAKE_XCODE_ATTRIBUTE_WARNING_CFLAGS=-Wno-narrowing)
-elseif(NOT MSVC)
-  list(APPEND OPENCV_CMAKE_ARGS CMAKE_CXX_FLAGS=-Wno-narrowing)
-endif()
-
 # Note: boost_portable_binary_[io]archive incompatibility encountered
 # with upgrade from 1.58.0 to 1.62.0, so boost should stay at 1.58.0
 # until that is resolved.  Most likely those models will be abandoned
