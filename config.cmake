@@ -72,3 +72,9 @@ hunter_config(half VERSION 1.1.0-p1)
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
+
+# experimental: lock verison but not used for CI builds
+hunter_config(dest VERSION 0.8.0-p4 CMAKE_ARGS DEST_WITH_OPENCV=ON)
+hunter_config(tinydir VERSION 1.2-p0)
+hunter_config(eos VERSION 0.6.1-p1)
+hunter_config(glm VERSION 0.9.7.6)
