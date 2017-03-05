@@ -40,6 +40,7 @@ list(APPEND OPENCV_CMAKE_ARGS
   HAVE_OPENCL=OFF
   WITH_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
+  BUILD_SHARED_LIBS=OFF
   )
 
 # Note: boost_portable_binary_[io]archive incompatibility encountered
@@ -74,7 +75,7 @@ hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
 
 # experimental: lock verison but not used for CI builds
-hunter_config(dest VERSION 0.8.0-p4 CMAKE_ARGS DEST_WITH_OPENCV=ON)
+hunter_config(dest VERSION 0.8.0-p4)
 hunter_config(tinydir VERSION 1.2-p0)
 hunter_config(eos VERSION 0.6.1-p1)
 hunter_config(glm VERSION 0.9.7.6)
