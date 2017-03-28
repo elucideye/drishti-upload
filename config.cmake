@@ -73,11 +73,14 @@ hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
 hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(half VERSION 1.1.0-p1)
-hunter_config(imshow VERSION 1.0.0-p0)
 hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
 hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
+
+if(NOT (ANROID OR IOS))
+  hunter_config(imshow VERSION 1.0.0-p0)
+endif()
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
