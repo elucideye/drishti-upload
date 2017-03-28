@@ -35,6 +35,8 @@ if(is_empty)
 endif()
 
 if(LEVEL EQUAL 1)
+  #hunter_add_package(boost-pba)
+  hunter_add_package(imshow)
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
   hunter_add_package(Eigen)
   hunter_add_package(PNG)
