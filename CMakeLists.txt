@@ -36,7 +36,8 @@ endif()
 
 if(LEVEL EQUAL 1)
   #hunter_add_package(boost-pba)
-  if(NOT (ANROID OR IOS))  
+  # TODO: Update imshow package to avoid GL_BGR(A) enum for MSVC builds
+  if(NOT (ANROID OR IOS MSVC))  
     hunter_add_package(imshow)
   endif()
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)

@@ -78,7 +78,9 @@ hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
 
-if(NOT (ANROID OR IOS))
+# Note: MSVC currently broken due to internal GL_BGR(A) enums
+# TODO: Update imshow package
+if(NOT (ANROID OR IOS OR MSVC))
   hunter_config(imshow VERSION 1.0.0-p0)
 endif()
 
