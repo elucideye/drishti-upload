@@ -80,7 +80,7 @@ hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_
 
 # Note: MSVC currently broken due to internal GL_BGR(A) enums
 # TODO: Update imshow package
-if(NOT (ANROID OR IOS OR MSVC))
+if(NOT (ANDROID OR IOS OR MSVC))
   hunter_config(imshow VERSION 1.0.0-p0)
 endif()
 
