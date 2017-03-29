@@ -67,7 +67,7 @@ hunter_config(GTest VERSION 1.8.0-hunter-p5)
 hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
-#hunter_config(boost-pba VERSION 1.0.0-p0)  # not yet!
+hunter_config(boost-pba VERSION 1.0.0-p0)  # not yet!
 hunter_config(cereal VERSION 1.2.1-p1)
 hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
