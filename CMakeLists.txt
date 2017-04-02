@@ -37,7 +37,8 @@ endif()
 if(LEVEL EQUAL 1)
   # TODO: Update imshow package to avoid GL_BGR(A) enum for MSVC builds
   if(NOT (ANDROID OR IOS OR MSVC))
-    hunter_add_package(imshow)
+    hunter_add_package(glfw) 
+    hunter_add_package(imshow) # depends on glfw
   endif()
   hunter_add_package(boost-pba)  
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
@@ -53,6 +54,8 @@ if(LEVEL EQUAL 1)
 elseif(LEVEL EQUAL 2)
   hunter_add_package(OpenCV)
 elseif(LEVEL EQUAL 3)
+  hunter_add_package(sse2neon)
+  hunter_add_package(ARM_NEON_2_x86_SSE)
   hunter_add_package(cvmatio) # depends on OpenCV
   hunter_add_package(half)
   hunter_add_package(GTest)
