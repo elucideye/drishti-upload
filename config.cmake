@@ -31,8 +31,10 @@ elseif(MSVC)
   drishti_set_opencv_cmake_args_windows()
 endif()
 
+option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
+
 list(APPEND OPENCV_CMAKE_ARGS
-  BUILD_opencv_world=ON
+  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
   BUILD_opencv_ts=OFF
   BUILD_opencv_python2=OFF
   BUILD_opencv_shape=OFF
