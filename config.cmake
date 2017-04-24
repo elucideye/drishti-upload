@@ -31,6 +31,7 @@ elseif(MSVC)
   drishti_set_opencv_cmake_args_windows()
 endif()
 
+option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
 option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 
 list(APPEND OPENCV_CMAKE_ARGS
@@ -59,6 +60,17 @@ set(EIGEN_CMAKE_ARGS
   CMAKE_Fortran_COMPILER=OFF
   )
 
+# Set xgboost args
+set(XGBOOST_CMAKE_ARGS
+  XGBOOST_USE_HALF=ON
+  XGBOOST_USE_BOOST=ON
+  )
+if(DRISHTI_BUILD_MIN_SIZE)
+  list(APPEND XGBOOST_CMAKE_ARGS XGBOOST_DO_LEAN=ON)
+else()
+  list(APPEND XGBOOST_CMAKE_ARGS XGBOOST_DO_LEAN=OFF)
+endif()
+
 if(APPLE OR ${is_linux} OR MSVC)
   hunter_config(Jpeg VERSION 9b-p1)
 endif()
@@ -81,7 +93,7 @@ hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
 hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
-hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS XGBOOST_DO_LEAN=ON XGBOOST_USE_HALF=ON XGBOOST_USE_BOOST=ON)
+hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
 # Note: MSVC currently broken due to internal GL_BGR(A) enums
 # TODO: Update imshow package
