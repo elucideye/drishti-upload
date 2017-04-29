@@ -81,6 +81,7 @@ script:
   - >
     build.py
     --toolchain ${TOOLCHAIN}
+    --fwd DRISHTI_BUILD_OPENCV_WORLD=OFF
     --verbose
     --discard 10
     --tail 200
