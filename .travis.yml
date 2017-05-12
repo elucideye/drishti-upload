@@ -47,7 +47,7 @@ matrix:
     - os: linux
       env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=1
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=1
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=1
     # }
 
     # OSX {
@@ -59,7 +59,7 @@ matrix:
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=1
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=1
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=1
     # }
     # }
 
@@ -68,7 +68,7 @@ matrix:
     - os: linux
       env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=2
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=2
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=2
     # }
 
     # OSX {
@@ -80,7 +80,7 @@ matrix:
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=2
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=2
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=2
     # }
     # }
 
@@ -89,7 +89,7 @@ matrix:
     - os: linux
       env: TOOLCHAIN=gcc-4-8-pic-hid-sections LEVEL=3
     - os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=3
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=3
     # }
 
     # OSX {
@@ -101,7 +101,7 @@ matrix:
       osx_image: xcode8.1
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=3
     - os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections LEVEL=3
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=3
     # }
     # }
 
