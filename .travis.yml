@@ -40,11 +40,11 @@ matrix:
     # OSX {
     - stage: Upload level 1
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=1
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=1
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-8-0-device-libcxx-hid-sections-lto LEVEL=1
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=1
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
@@ -65,11 +65,11 @@ matrix:
     # OSX {
     - stage: Upload level 2
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=2
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=2
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-8-0-device-libcxx-hid-sections-lto LEVEL=2
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=2
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
@@ -90,11 +90,11 @@ matrix:
     # OSX {
     - stage: Upload level 3
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections LEVEL=3
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=3
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-8-0-device-libcxx-hid-sections-lto LEVEL=3
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=3
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
