@@ -34,7 +34,7 @@ matrix:
     # Linux {
     - stage: Upload level 1
       os: linux
-      env: TOOLCHAIN=gcc-pic-hid-sections LEVEL=1
+      env: TOOLCHAIN=gcc-pic-hid-sections-lto LEVEL=1
     # }
 
     # OSX {
@@ -59,7 +59,7 @@ matrix:
     # Linux {
     - stage: Upload level 2
       os: linux
-      env: TOOLCHAIN=gcc-pic-hid-sections LEVEL=2
+      env: TOOLCHAIN=gcc-pic-hid-sections-lto LEVEL=2
     # }
 
     # OSX {
@@ -84,7 +84,7 @@ matrix:
     # Linux {
     - stage: Upload level 3
       os: linux
-      env: TOOLCHAIN=gcc-pic-hid-sections LEVEL=3
+      env: TOOLCHAIN=gcc-pic-hid-sections-lto LEVEL=3
     # }
 
     # OSX {
