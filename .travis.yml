@@ -41,24 +41,28 @@ matrix:
     # Linux {
     - stage: Upload level 1
       os: linux
-      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto LEVEL=1
+      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=1
     # }
 
     # OSX {
     - stage: Upload level 1
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=1
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=1
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=1
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=1
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=1
     - stage: Upload level 1
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=1
+      osx_image: xcode8.1
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=1
+    - stage: Upload level 1
+      os: osx
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
     # }
     # }
 
@@ -66,24 +70,28 @@ matrix:
     # Linux {
     - stage: Upload level 2
       os: linux
-      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto LEVEL=2
+      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=2
     # }
 
     # OSX {
     - stage: Upload level 2
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=2
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=2
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=2
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=2
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=2
     - stage: Upload level 2
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=2
+      osx_image: xcode8.1
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=2
+    - stage: Upload level 2
+      os: osx
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
     # }
     # }
 
@@ -91,37 +99,29 @@ matrix:
     # Linux {
     - stage: Upload level 3
       os: linux
-      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto LEVEL=3
+      env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=3
     # }
 
     # OSX {
     - stage: Upload level 3
       os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto LEVEL=3
+      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=3
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto LEVEL=3
+      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections LEVEL=3
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=3
     - stage: Upload level 3
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=3
+      osx_image: xcode8.1
+      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=3
+    - stage: Upload level 3
+      os: osx
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
     # }
-    # }
-
-    # {
-    - stage: Verify Linux + Android
-      os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=1
-    - stage: Verify Linux + Android
-      os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=2
-    - stage: Verify Linux + Android
-      os: linux
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto LEVEL=3
     # }
 
 install:
@@ -156,6 +156,7 @@ script:
   - >
     build.py
     --toolchain ${TOOLCHAIN}
+    --fwd HUNTER_CONFIGURATION_TYPES=${CONFIG}
     --verbose
     --discard 10
     --tail 200
