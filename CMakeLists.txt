@@ -37,10 +37,10 @@ endif()
 if(LEVEL EQUAL 1)
   # TODO: Update imshow package to avoid GL_BGR(A) enum for MSVC builds
   if(NOT (ANDROID OR IOS OR MSVC))
-    hunter_add_package(glfw) 
+    hunter_add_package(glfw)
     hunter_add_package(imshow) # depends on glfw
   endif()
-  hunter_add_package(boost-pba)  
+  hunter_add_package(boost-pba)
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
   hunter_add_package(Eigen)
   hunter_add_package(PNG)
