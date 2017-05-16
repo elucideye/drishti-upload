@@ -83,7 +83,6 @@ hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 hunter_config(RapidXML VERSION 1.13)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
-hunter_config(boost-pba VERSION 1.0.0-p0)
 hunter_config(cereal VERSION 1.2.1-p1)
 hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
@@ -91,19 +90,24 @@ hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(glfw VERSION 3.3.0-p1)
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
-hunter_config(ogles_gpgpu VERSION 0.1.6-p1 CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
 hunter_config(spdlog VERSION 1.0.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
-hunter_config(xgboost VERSION 0.40-p5 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
-
-# Note: MSVC currently broken due to internal GL_BGR(A) enums
-# TODO: Update imshow package
-if(NOT (ANDROID OR IOS OR MSVC))
-  hunter_config(imshow VERSION 1.0.0-p0)
-endif()
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
 hunter_config(eos VERSION 0.6.1-p1)
 hunter_config(glm VERSION 0.9.7.6)
 hunter_config(tinydir VERSION 1.2-p0)
+
+if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+  hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
+  hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
+  hunter_config(xgboost GIT_SUBMODULE "src/3rdparty/xgboost" CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
+  hunter_config(thread-pool-cpp GIT_SUBMODULE "src/3rdparty/thread-pool-cpp")
+
+  # Note: MSVC currently broken due to internal GL_BGR(A) enums
+  # TODO: Update imshow package
+  if(NOT (ANDROID OR IOS OR MSVC))
+    hunter_config(imshow GIT_SUBMODULE "src/3rdparty/imshow")
+  endif()
+endif()

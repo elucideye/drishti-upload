@@ -27,6 +27,7 @@ project(drishti-upload)
 ## Do note move this!!!!!!!!
 #####################################################################
 string(COMPARE EQUAL "${CMAKE_SYSTEM_NAME}" "Linux" is_linux)
+set(DRISHTI_UPLOAD_IGNORE_SUBMODULES YES)
 
 set(LEVEL "$ENV{LEVEL}")
 string(COMPARE EQUAL "${LEVEL}" "" is_empty)
@@ -37,10 +38,14 @@ endif()
 if(LEVEL EQUAL 1)
   # TODO: Update imshow package to avoid GL_BGR(A) enum for MSVC builds
   if(NOT (ANDROID OR IOS OR MSVC))
-    hunter_add_package(glfw) 
-    hunter_add_package(imshow) # depends on glfw
+    hunter_add_package(glfw)
+    if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+      hunter_add_package(imshow) # depends on glfw
+    endif()
   endif()
-  hunter_add_package(boost-pba)  
+  if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+    hunter_add_package(boost-pba)
+  endif()
   hunter_add_package(Boost COMPONENTS filesystem system serialization iostreams)
   hunter_add_package(Eigen)
   hunter_add_package(PNG)
@@ -60,10 +65,12 @@ elseif(LEVEL EQUAL 3)
   hunter_add_package(cvmatio) # depends on OpenCV
   hunter_add_package(half)
   hunter_add_package(GTest)
-  hunter_add_package(thread-pool-cpp)
-  hunter_add_package(xgboost)
   hunter_add_package(cxxopts)
-  hunter_add_package(ogles_gpgpu)
+  if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+    hunter_add_package(ogles_gpgpu)
+    hunter_add_package(xgboost)
+    hunter_add_package(thread-pool-cpp)
+  endif()
   hunter_add_package(nlohmann-json) # test
   if(ANDROID)
     hunter_add_package(Android-SDK)
