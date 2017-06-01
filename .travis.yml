@@ -51,11 +51,7 @@ matrix:
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
-    - stage: Upload level 1
-      os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=1
+      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
     - stage: Upload level 1
       os: osx
       osx_image: xcode8.1
@@ -80,11 +76,7 @@ matrix:
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
-    - stage: Upload level 2
-      os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=2
+      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
     - stage: Upload level 2
       os: osx
       osx_image: xcode8.1
@@ -109,11 +101,7 @@ matrix:
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
-    - stage: Upload level 3
-      os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Debug LEVEL=3
+      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
     - stage: Upload level 3
       os: osx
       osx_image: xcode8.1
