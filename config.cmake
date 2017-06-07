@@ -95,7 +95,7 @@ hunter_config(sse2neon VERSION 1.0.0-p0)
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
-hunter_config(eos VERSION 0.6.1-p1)
+hunter_config(eos VERSION 0.12.1)
 hunter_config(glm VERSION 0.9.7.6)
 hunter_config(tinydir VERSION 1.2-p0)
 
