@@ -144,10 +144,10 @@ script:
   - >
     build.py
     --toolchain ${TOOLCHAIN}
-    --fwd HUNTER_CONFIGURATION_TYPES=${CONFIG}
+    --fwd
+    HUNTER_CONFIGURATION_TYPES=${CONFIG}
+    HUNTER_SUPPRESS_LIST_OF_FILES=YES
     --verbose
-    --discard 10
-    --tail 200
 
   # Upload to server
   - git clone https://github.com/ruslo/hunter
