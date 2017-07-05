@@ -100,6 +100,10 @@ hunter_config(eos VERSION 0.12.1)
 hunter_config(tinydir VERSION 1.2-p0)
 hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
 
+# Use submodules for first packaged version:
+hunter_config(drishti_assets GIT_SUBMODULE "src/3rdparty/drishti-assets")
+hunter_config(drishti_faces GIT_SUBMODULE "src/3rdparty/drishti-faces")
+
 if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
   hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
   hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
