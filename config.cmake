@@ -105,6 +105,7 @@ if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
   # Use submodules for first packaged version:
   hunter_config(drishti_assets GIT_SUBMODULE "src/3rdparty/drishti-assets")
   hunter_config(drishti_faces GIT_SUBMODULE "src/3rdparty/drishti-faces")
+  hunter_config(aglet GIT_SUBMODULE "src/3rdparty/aglet")
   
   hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
   hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS OGLES_GPGPU_VERBOSE=OFF)
