@@ -91,7 +91,7 @@ hunter_config(glfw VERSION 3.3.0-p1)
 hunter_config(glm VERSION 0.9.8.5)
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
-hunter_config(spdlog VERSION 1.0.0-p0)
+hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 
 # experimental: lock verison but not used for CI builds
