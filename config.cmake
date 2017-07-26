@@ -103,9 +103,9 @@ hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
 if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
 
   if(DRISHTI_OPENGL_ES3)
-    set(use_opengl_es3=ON)
+    set(use_opengl_es3 ON)
   else()
-    set(use_opengl_es3=OFF)
+    set(use_opengl_es3 OFF)
   endif()
 
   set(OGLES_GPGPU_CMAKE_ARGS
