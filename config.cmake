@@ -103,11 +103,11 @@ hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
 if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
 
   if(DRISHTI_OPENGL_ES3)
-    set(use_opengl_es3=ON)
+    set(use_opengl_es3 ON)
   else()
-    set(use_opengl_es3=OFF)    
+    set(use_opengl_es3 OFF)
   endif()
-      
+
   set(OGLES_GPGPU_CMAKE_ARGS
     OGLES_GPGPU_VERBOSE=OFF
     OGLES_GPGPU_OPENGL_ES3=${use_opengl_es3})
@@ -119,7 +119,7 @@ if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
   hunter_config(drishti_assets GIT_SUBMODULE "src/3rdparty/drishti-assets")
   hunter_config(drishti_faces GIT_SUBMODULE "src/3rdparty/drishti-faces")
   hunter_config(aglet GIT_SUBMODULE "src/3rdparty/aglet" CMAKE_ARGS ${AGLET_CMAKE_ARGS})
-  
+
   hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
   hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
   hunter_config(xgboost GIT_SUBMODULE "src/3rdparty/xgboost" CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
