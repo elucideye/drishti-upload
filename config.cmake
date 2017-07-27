@@ -120,7 +120,7 @@ if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
   hunter_config(drishti_faces GIT_SUBMODULE "src/3rdparty/drishti-faces")
   hunter_config(aglet GIT_SUBMODULE "src/3rdparty/aglet" CMAKE_ARGS ${AGLET_CMAKE_ARGS})
 
-  hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
+  #hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
   hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
   hunter_config(xgboost GIT_SUBMODULE "src/3rdparty/xgboost" CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
   hunter_config(thread-pool-cpp GIT_SUBMODULE "src/3rdparty/thread-pool-cpp")
