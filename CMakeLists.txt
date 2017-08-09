@@ -74,7 +74,7 @@ elseif(LEVEL EQUAL 3)
     hunter_add_package(thread-pool-cpp)
     hunter_add_package(xgboost)
   endif()
-  hunter_add_package(nlohmann-json) # test
+  hunter_add_package(nlohmann_json) # test
   if(ANDROID)
     hunter_add_package(Android-SDK)
   endif()
