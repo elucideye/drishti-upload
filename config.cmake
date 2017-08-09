@@ -46,11 +46,7 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_SHARED_LIBS=OFF
   )
 
-# Note: boost_portable_binary_[io]archive incompatibility encountered
-# with upgrade from 1.58.0 to 1.62.0, so boost should stay at 1.58.0
-# until that is resolved.  Most likely those models will be abandoned
-# in favor of cereal.
-set(drishti_boost_version 1.58.0-p1) # 1.62.0
+set(drishti_boost_version 1.64.0)
 
 # Maintain hunter default args (no testing, license name) and eliminate
 # eigen fortrn dependencies
@@ -76,19 +72,17 @@ if(APPLE OR ${is_linux} OR MSVC)
 endif()
 
 hunter_config(ARM_NEON_2_x86_SSE VERSION 1.0.0-p0)
-hunter_config(Boost VERSION ${drishti_boost_version} CMAKE_ARGS IOSTREAMS_NO_BZIP2=1)
+hunter_config(Boost VERSION ${drishti_boost_version})
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
 hunter_config(GTest VERSION 1.8.0-hunter-p5)
 hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
-hunter_config(RapidXML VERSION 1.13)
 hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
+hunter_config(RapidXML VERSION 1.13)
 hunter_config(cereal VERSION 1.2.1-p1)
 hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
-hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(glfw VERSION 3.3.0-p1)
-hunter_config(glm VERSION 0.9.8.5)
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nlohmann-json VERSION 1.0.0-rc1-hunter-3)
 hunter_config(spdlog VERSION 0.13.0-p0)
@@ -97,8 +91,10 @@ hunter_config(sse2neon VERSION 1.0.0-p0)
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
 hunter_config(eos VERSION 0.12.1)
+hunter_config(glm VERSION 0.9.8.5)
+hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(tinydir VERSION 1.2-p0)
-hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
+hunter_config(Beast VERSION 1.0.0-b84-hunter-0)
 
 if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
 
@@ -120,7 +116,6 @@ if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
   hunter_config(drishti_faces GIT_SUBMODULE "src/3rdparty/drishti-faces")
   hunter_config(aglet GIT_SUBMODULE "src/3rdparty/aglet" CMAKE_ARGS ${AGLET_CMAKE_ARGS})
 
-  #hunter_config(boost-pba GIT_SUBMODULE "src/3rdparty/boost-pba")
   hunter_config(ogles_gpgpu GIT_SUBMODULE "src/3rdparty/ogles_gpgpu" CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
   hunter_config(xgboost GIT_SUBMODULE "src/3rdparty/xgboost" CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
   hunter_config(thread-pool-cpp GIT_SUBMODULE "src/3rdparty/thread-pool-cpp")
