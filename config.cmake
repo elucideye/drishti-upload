@@ -84,7 +84,7 @@ hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
 hunter_config(glfw VERSION 3.3.0-p1)
 hunter_config(half VERSION 1.1.0-p1)
-hunter_config(nlohmann_json VERSION 2.1.1-p0)
+hunter_config(nlohmann_json VERSION 2.1.1-p1)
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 
