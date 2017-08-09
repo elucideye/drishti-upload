@@ -94,7 +94,7 @@ hunter_config(eos VERSION 0.12.1)
 hunter_config(glm VERSION 0.9.8.5)
 hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(tinydir VERSION 1.2-p0)
-hunter_config(Beast VERSION 1.0.0-b84-hunter-0)
+hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
 
 if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
 
