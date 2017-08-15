@@ -107,7 +107,7 @@ hunter_config(ogles_gpgpu VERSION 0.2.1)
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
-hunter_config(xgboost VERSION 0.40-p9)
+hunter_config(xgboost VERSION 0.40-p9 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
