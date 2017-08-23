@@ -31,6 +31,7 @@ elseif(MSVC)
   drishti_set_opencv_cmake_args_windows()
 endif()
 
+option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
 option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 
