@@ -97,7 +97,7 @@ hunter_config(PNG VERSION 1.6.26-p1)
 if(is_linux OR MINGW)
   hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
 else()
-  hunter_config(Qt VERSION 5.9.1-p0)
+  hunter_config(Qt VERSION 5.9.1-p0 CMAKE_ARGS QT_OPENGL_DESKTOP=ON)
 endif()
 
 hunter_config(RapidXML VERSION 1.13)
