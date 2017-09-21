@@ -32,7 +32,7 @@ environment:
 #
 #init:
 #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-    
+
 install:
   # Python 3
   - cmd: set PATH=C:\Python34-x64;C:\Python34-x64\Scripts;%PATH%
@@ -72,7 +72,7 @@ build_script:
 
   # Upload to server
   - cmd: git clone https://github.com/ruslo/hunter
-  - cmd: python %cd%\hunter\maintenance\upload-cache-to-github.py --username jalandhara --repo-owner elucideye --repo hunter-cache --cache-dir C:/Users/appveyor/.hunter/_Base/Cache --temp-dir C:/Users/appveyor/__TEMP_HUNTER
+  - cmd: python %cd%\hunter\maintenance\upload-cache-to-github.py --username jalandhara --repo-owner elucideye --repo hunter-cache --cache-dir C:/.hunter/_Base/Cache --temp-dir C:/__TEMP_HUNTER
 
 branches:
   except:
@@ -82,4 +82,4 @@ branches:
 # See init and on_finish sections for remote desktop connection
 #
 #on_finish:
-#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))    
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
