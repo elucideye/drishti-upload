@@ -94,11 +94,22 @@ hunter_config(GTest VERSION 1.8.0-hunter-p5)
 hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 
+set(qt_cmake_args "")
 if(is_linux OR MINGW)
-  hunter_config(Qt VERSION 5.5.1-cvpixelbuffer-2-p9)
+  set(qt_version 5.5.1-cvpixelbuffer-2-p9)
 else()
-  hunter_config(Qt VERSION 5.9.1-p0 CMAKE_ARGS QT_OPENGL_DESKTOP=ON)
+  set(qt_version 5.9.1-p0)
 endif()
+
+if(MSVC)
+  list(APPEND qt_cmake_args QT_OPENGL_DESKTOP=ON)
+endif()
+
+if(is_linux)
+  list(APPEND qt_cmake_args BUILD_SHARED_LIBS=ON QT_WITH_GSTREAMER=ON)
+endif()
+
+hunter_config(Qt VERSION ${qt_version} CMAKE_ARGS ${qt_cmake_args})
 
 hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION 1.2.0 CMAKE_ARGS ${AGLET_CMAKE_ARGS})
