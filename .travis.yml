@@ -65,7 +65,7 @@ matrix:
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=1
     - stage: Upload level 1
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections CONFIG=MinSizeRel LEVEL=1
     # }
     # }
 
@@ -90,7 +90,7 @@ matrix:
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=2
     - stage: Upload level 2
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections CONFIG=MinSizeRel LEVEL=2
     # }
     # }
 
@@ -115,7 +115,7 @@ matrix:
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=3
     - stage: Upload level 3
       os: osx
-      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
+      env: TOOLCHAIN=android-ndk-r10e-api-19-armeabi-v7a-neon-hid-sections CONFIG=MinSizeRel LEVEL=3
     # }
     # }
 
