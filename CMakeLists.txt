@@ -5,7 +5,13 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 include("cmake/HunterGate.cmake")
 ### Hunter snapshot that will be used ###
 # drishti specific hunter cache pacakges:
-list(APPEND HUNTER_CACHE_SERVERS "https://github.com/elucideye/hunter-cache")
+set(
+    HUNTER_CACHE_SERVERS
+    "https://github.com/elucideye/hunter-cache"
+    CACHE
+    STRING
+    "Hunter cache servers"
+)
 
 include(drishti_set_hunter_gate)
 drishti_set_hunter_version(DRISHTI_HUNTER_GATE_URL DRISHTI_HUNTER_GATE_SHA1)
