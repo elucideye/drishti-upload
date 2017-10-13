@@ -113,7 +113,7 @@ hunter_config(Qt VERSION ${qt_version} CMAKE_ARGS ${qt_cmake_args})
 
 hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION 1.2.0 CMAKE_ARGS ${AGLET_CMAKE_ARGS})
-hunter_config(cereal VERSION 1.2.1-p1)
+hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
 hunter_config(drishti_assets VERSION 1.8)
