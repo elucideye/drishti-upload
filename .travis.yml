@@ -44,11 +44,16 @@ env:
 
 matrix:
   include:
+    # Toolchain 'libcxx' for https://github.com/elucideye/acf
+
     # LEVEL=1 {
     # Linux {
     - stage: Upload level 1
       os: linux
       env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=1
+    - stage: Upload level 1
+      os: linux
+      env: TOOLCHAIN=libcxx CONFIG=Release LEVEL=1
     # }
 
     # OSX {
@@ -74,6 +79,9 @@ matrix:
     - stage: Upload level 2
       os: linux
       env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=2
+    - stage: Upload level 2
+      os: linux
+      env: TOOLCHAIN=libcxx CONFIG=Release LEVEL=2
     # }
 
     # OSX {
@@ -99,6 +107,9 @@ matrix:
     - stage: Upload level 3
       os: linux
       env: TOOLCHAIN=gcc-5-pic-hid-sections-lto CONFIG=Release LEVEL=3
+    - stage: Upload level 3
+      os: linux
+      env: TOOLCHAIN=libcxx CONFIG=Release LEVEL=3
     # }
 
     # OSX {
