@@ -118,7 +118,7 @@ hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
-hunter_config(eigen3-nnls 1.0.1) # eos
+hunter_config(eigen3-nnls VERSION 1.0.1) # eos
 hunter_config(eos VERSION 0.12.1) # eos
 hunter_config(glfw VERSION 3.3.0-p4)
 hunter_config(glm VERSION 0.9.8.5) # eos
