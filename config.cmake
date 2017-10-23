@@ -118,8 +118,12 @@ hunter_config(cvmatio VERSION 1.0.27-p3)
 hunter_config(dlib VERSION 19.2-p1)
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
+hunter_config(eigen3-nnls VERSION 1.0.1) # eos
+hunter_config(eos VERSION 0.12.1) # eos
 hunter_config(glfw VERSION 3.3.0-p4)
+hunter_config(glm VERSION 0.9.8.5) # eos
 hunter_config(half VERSION 1.1.0-p1)
+hunter_config(nanoflann VERSION 1.2.3-p0) # eos
 hunter_config(nlohmann_json VERSION 2.1.1-p1)
 hunter_config(ogles_gpgpu VERSION 0.2.5 CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
 hunter_config(spdlog VERSION 0.13.0-p0)
@@ -129,8 +133,6 @@ hunter_config(xgboost VERSION 0.40-p9 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
-hunter_config(eos VERSION 0.12.1)
-hunter_config(glm VERSION 0.9.8.5)
 hunter_config(flatbuffers VERSION 1.3.0-p3)
 hunter_config(tinydir VERSION 1.2-p0)
 hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
