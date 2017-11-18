@@ -31,6 +31,8 @@ elseif(MSVC)
   drishti_set_opencv_cmake_args_windows()
 endif()
 
+option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
+option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
 option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
@@ -111,6 +113,16 @@ endif()
 
 hunter_config(Qt VERSION ${qt_version} CMAKE_ARGS ${qt_cmake_args})
 
+set(acf_cmake_args
+  ACF_BUILD_OGLES_GPGPU=ON 
+  ACF_BUILD_TESTS=OFF 
+  ACF_BUILD_EXAMPLES=OFF
+  ACF_SERIALIZE_WITH_CVMATIO=${DRISHTI_SERIALIZE_WITH_CVMATIO}
+  ACF_SERIALIZE_WITH_CEREAL=ON
+  ACF_BUILD_OGLES_GPGPU=${DRISHTI_BUILD_OGLES_GPGPU}
+)
+
+hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args}) 
 hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION 1.2.0 CMAKE_ARGS ${AGLET_CMAKE_ARGS})
 hunter_config(cereal VERSION 1.2.2-p0)
