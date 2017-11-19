@@ -31,9 +31,12 @@ elseif(MSVC)
   drishti_set_opencv_cmake_args_windows()
 endif()
 
+option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
+option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
 option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
+option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
 
 list(APPEND OPENCV_CMAKE_ARGS
   BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
@@ -61,6 +64,17 @@ set(EIGEN_CMAKE_ARGS
 set(XGBOOST_CMAKE_ARGS
   XGBOOST_USE_CEREAL=ON  
   XGBOOST_USE_HALF=ON
+  )
+
+option(DRISHTI_ACF_USE_SUBMODULE "Use ACF as a submodule" OFF)
+
+set(acf_cmake_args
+  ACF_BUILD_OGLES_GPGPU=ON 
+  ACF_BUILD_TESTS=OFF 
+  ACF_BUILD_EXAMPLES=OFF
+  ACF_SERIALIZE_WITH_CVMATIO=${DRISHTI_SERIALIZE_WITH_CVMATIO}
+  ACF_SERIALIZE_WITH_CEREAL=ON
+  ACF_BUILD_OGLES_GPGPU=${DRISHTI_BUILD_OGLES_GPGPU}
 )
 
 if(DRISHTI_BUILD_MIN_SIZE)
@@ -130,6 +144,14 @@ hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
 hunter_config(xgboost VERSION 0.40-p9 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
+
+if(DRISHTI_ACF_USE_SUBMODULE)
+  if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+    hunter_config(acf GIT_SUBMODULE "src/3rdparty/acf" CMAKE_ARGS ${acf_cmake_args})
+  endif()
+else()
+  hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
+endif()
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
