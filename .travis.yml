@@ -132,7 +132,7 @@ matrix:
       os: osx
       osx_image: xcode8.3
       env: TOOLCHAIN=ios-nocodesign-10-3-arm64-dep-9-0-device-libcxx-hid-sections CONFIG=MinSizeRel LEVEL=3
-    - stage: Upload levely 3
+    - stage: Upload level 3
       os: osx
       osx_image: xcode8.3
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=3
