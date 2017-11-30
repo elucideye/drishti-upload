@@ -51,6 +51,9 @@ env:
   global:
     secure: "ZwpRmqxF5EXRiRKKyT5iR7AR4Tlqmali5IsSaAFPERfo/dINPpibar38qC3elWgrZCR73PtV9sqCN7K873vovK3fGFeb3pXDPRsVmelQ1K/vbjs+pdLE0YFrui5vLvkukii0EcRlBxJ93E8lNcHc9jQKvpydcMUr6RUcH2n/PacG7lT7dMqWF3Vh7iRG6KTqiwi9iQ4Hz4LtVMmeZ+18vTctQ07kePMQAYnhnpfbpTHPIZj9dFtZaL/EjxcSdZOJjZzXa/nE2irlRJiU4XOBtfcrW7cRgr9ICjUy2G83KLzO68iHkig9cetOTWs5qfKzp0GrUbiRlc5TQTpUzFSOMGdufeG2BV6Br0X7tUkVicU8R9NO56QCQ2MKoJsf06m22WSrr+WJvk/xNHLLzuInZ51vA4xMIiIXBf8zATkCnaEO4dWcM7iq64enY73REF2SRcHPMsjaRQB7i/9GOC7W9TwL06PcFGNRj/e4YWy5Tm+R+uNiXS0R5UfWfoltSQkATTZ35baPK/Sxdo05MXscgolTFe2nDhmPliyLwufHUDizvebVSccSyvp2RMQ8pmr5vs97/R783t01SOsnxhCFgXnCz0D/5MDWuftjg6+9rKo0tCtFUOvHdY4LcnhHYLO1Pv5/MhtnAkatcgYBw2x5amPs4/NAoLMyiDK/ZkCPHig="
 
+
+# Xcode 8.3.3 includes SDKs for iOS 10.3.1, watchOS 3.2, macOS 10.12.4, and tvOS 10.2.
+    
 matrix:
   include:
     # Toolchain 'libcxx' for https://github.com/elucideye/acf
@@ -67,15 +70,15 @@ matrix:
 
     # OSX {
     - stage: Upload level 1
-      os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=1
+      osx_image: xcode8.3
+      env: TOOLCHAIN=osx-10-12-hid-sections CONFIG=Release LEVEL=1
     - stage: Upload level 1
       os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=1
+      osx_image: xcode8.3
+      env: TOOLCHAIN=ios-nocodesign-10-3-arm64-dep-9-0-device-libcxx-hid-sections CONFIG=MinSizeRel LEVEL=1
     - stage: Upload level 1
       os: osx
-      osx_image: xcode8.1
+      osx_image: xcode8.3
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=1
     - stage: Upload level 1
       os: osx
@@ -95,15 +98,15 @@ matrix:
 
     # OSX {
     - stage: Upload level 2
-      os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=2
+      osx_image: xcode8.3
+      env: TOOLCHAIN=osx-10-12-hid-sections CONFIG=Release LEVEL=2
     - stage: Upload level 2
       os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=2
+      osx_image: xcode8.3
+      env: TOOLCHAIN=ios-nocodesign-10-3-arm64-dep-9-0-device-libcxx-hid-sections CONFIG=MinSizeRel LEVEL=2
     - stage: Upload level 2
       os: osx
-      osx_image: xcode8.1
+      osx_image: xcode8.3
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=2
     - stage: Upload level 2
       os: osx
@@ -123,15 +126,15 @@ matrix:
 
     # OSX {
     - stage: Upload level 3
-      os: osx
-      env: TOOLCHAIN=osx-10-11-hid-sections-lto CONFIG=Release LEVEL=3
+      osx_image: xcode8.3
+      env: TOOLCHAIN=osx-10-12-hid-sections CONFIG=Release LEVEL=3
     - stage: Upload level 3
       os: osx
-      osx_image: xcode8.1
-      env: TOOLCHAIN=ios-nocodesign-10-1-arm64-dep-9-0-device-libcxx-hid-sections-lto CONFIG=MinSizeRel LEVEL=3
+      osx_image: xcode8.3
+      env: TOOLCHAIN=ios-nocodesign-10-3-arm64-dep-9-0-device-libcxx-hid-sections CONFIG=MinSizeRel LEVEL=3
     - stage: Upload level 3
       os: osx
-      osx_image: xcode8.1
+      osx_image: xcode8.3
       env: TOOLCHAIN=osx-10-12-sanitize-address-hid-sections CONFIG=Release LEVEL=3
     - stage: Upload level 3
       os: osx
