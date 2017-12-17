@@ -18,6 +18,7 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-5.0
     packages:
       # For Qt
       - libegl1-mesa-dev
@@ -36,12 +37,12 @@ addons:
       - gcc-5
 
       # For 'acf' toolchain 'libcxx' {
-      - clang-3.8
+      - clang-5.0
       - libc++-dev
       - libc++abi-dev
-      - libclang-3.8-dev
-      - libclang-common-3.8-dev
-      - libclang1-3.8
+      - libclang-5.0-dev
+      - libclang-common-5.0-dev
+      - libclang1-5.0
       # }
 
       # pip3
@@ -149,7 +150,8 @@ install:
   # Info about OS
   - uname -a
 
-  - if [[ "`uname`" == "Linux" ]]; then mkdir -p latest-clang-symlinks && ln -s /usr/bin/clang-3.8 latest-clang-symlinks/clang && ln -s /usr/bin/clang++-3.8 latest-clang-symlinks/clang++ && export PATH="$PWD/latest-clang-symlinks:$PATH"; fi
+  # workaround for update-alternatives permission issue:
+  - if [[ "`uname`" == "Linux" ]]; then mkdir -p latest-clang-symlinks && ln -s /usr/bin/clang-5.0 latest-clang-symlinks/clang && ln -s /usr/bin/clang++-5.0 latest-clang-symlinks/clang++ && export PATH="$PWD/latest-clang-symlinks:$PATH"; fi
 
   # Install Python 3
   - if [[ "`uname`" == "Darwin" ]]; then travis_retry brew install python3; fi
