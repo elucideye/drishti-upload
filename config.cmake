@@ -52,6 +52,20 @@ list(APPEND OPENCV_CMAKE_ARGS
 
 set(drishti_boost_version 1.64.0)
 
+set(dlib_cmake_args
+  DLIB_HEADER_ONLY=OFF # all previous builds were header only, so that is the default
+  DLIB_ENABLE_ASSERTS=OFF # must be set on/off or debug/release build will differ and config will not match one
+  HUNTER_INSTALL_LICENSE_FILES=dlib/LICENSE.txt
+  )
+
+if(ANDROID)
+  # https://travis-ci.org/ingenue/hunter/jobs/287844545
+  # Will be fixed in Android NDK 17
+  set(dlib_version 19.2-p1)
+else()
+  set(dlib_version 19.6-p1)
+endif()
+
 # Maintain hunter default args (no testing, license name) and eliminate
 # eigen fortrn dependencies
 set(EIGEN_CMAKE_ARGS
@@ -129,7 +143,7 @@ hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION 1.2.0 CMAKE_ARGS ${AGLET_CMAKE_ARGS})
 hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.27-p3)
-hunter_config(dlib VERSION 19.2-p1)
+hunter_config(dlib VERSION ${dlib_version} CMAKE_ARGS ${dlib_cmake_args})
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
 hunter_config(eigen3-nnls VERSION 1.0.1) # eos
