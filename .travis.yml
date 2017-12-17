@@ -18,6 +18,7 @@ addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-3.9
     packages:
       # For Qt
       - libegl1-mesa-dev
@@ -36,12 +37,12 @@ addons:
       - gcc-5
 
       # For 'acf' toolchain 'libcxx' {
-      - clang-3.8
+      - clang-3.9
       - libc++-dev
       - libc++abi-dev
-      - libclang-3.8-dev
-      - libclang-common-3.8-dev
-      - libclang1-3.8
+      - libclang-3.9-dev
+      - libclang-common-3.9-dev
+      - libclang1-3.9
       # }
 
       # pip3
