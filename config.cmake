@@ -63,7 +63,7 @@ if(ANDROID)
   # Will be fixed in Android NDK 17
   set(dlib_version 19.2-p1)
 else()
-  set(dlib_version 19.6-p1)
+  set(dlib_version 19.6-fix1)
 endif()
 
 # Maintain hunter default args (no testing, license name) and eliminate
