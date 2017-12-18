@@ -64,7 +64,7 @@ set(dlib_cmake_args
   DLIB_USE_CUDA=OFF
   DLIB_PNG_SUPPORT=ON
   DLIB_GIF_SUPPORT=OFF
-  DLIB_USE_MKL_FFT=OFF  
+  DLIB_USE_MKL_FFT=OFF
   HUNTER_INSTALL_LICENSE_FILES=dlib/LICENSE.txt
   )
 
@@ -73,7 +73,7 @@ if(ANDROID)
   # Will be fixed in Android NDK 17
   set(dlib_version 19.2-p1)
 else()
-  set(dlib_version 19.6-fix1)
+  set(dlib_version 19.6-p2)
 endif()
 
 # Maintain hunter default args (no testing, license name) and eliminate
@@ -86,15 +86,15 @@ set(EIGEN_CMAKE_ARGS
 
 ### Set xgboost args ###
 set(XGBOOST_CMAKE_ARGS
-  XGBOOST_USE_CEREAL=ON  
+  XGBOOST_USE_CEREAL=ON
   XGBOOST_USE_HALF=ON
   )
 
 option(DRISHTI_ACF_USE_SUBMODULE "Use ACF as a submodule" OFF)
 
 set(acf_cmake_args
-  ACF_BUILD_OGLES_GPGPU=ON 
-  ACF_BUILD_TESTS=OFF 
+  ACF_BUILD_OGLES_GPGPU=ON
+  ACF_BUILD_TESTS=OFF
   ACF_BUILD_EXAMPLES=OFF
   ACF_SERIALIZE_WITH_CVMATIO=${DRISHTI_SERIALIZE_WITH_CVMATIO}
   ACF_SERIALIZE_WITH_CEREAL=ON
