@@ -179,7 +179,7 @@ endif()
 
 # experimental: lock verison but not used for CI builds
 hunter_config(dest VERSION 0.8.0-p4)
-hunter_config(flatbuffers VERSION 1.3.0-p3)
+hunter_config(flatbuffers VERSION 1.8.0-p1)
 hunter_config(tinydir VERSION 1.2-p0)
 hunter_config(Beast VERSION 1.0.0-b32-hunter-4)
 
