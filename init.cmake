@@ -36,7 +36,7 @@ set(
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.19.237.tar.gz"
-    SHA1 "b64ad42b7ef398a7332f5f4a98cf7bbfd38ca8d0"
+    URL "https://github.com/ruslo/hunter/archive/v0.20.0.tar.gz"
+    SHA1 "e94556ed41e5432997450bca7232db72a3b0d5ef"
     FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
 )
