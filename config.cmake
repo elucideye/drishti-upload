@@ -191,3 +191,11 @@ if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
     hunter_config(imshow GIT_SUBMODULE "src/3rdparty/imshow")
   endif()
 endif()
+
+# Requirements for Urho3D {
+
+# * https://docs.hunter.sh/en/latest/packages/pkg/Urho3D.html
+hunter_config(Lua VERSION 5.1.5-p2)
+hunter_config(SDL2 VERSION 2.0.4-urho-p4)
+
+# }
