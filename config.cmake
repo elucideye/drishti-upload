@@ -1,5 +1,7 @@
 message(">:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>: ${CMAKE_MODULE_PATH} <:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:")
 
+string(COMPARE EQUAL "${CMAKE_SYSTEM_NAME}" "Linux" is_linux)
+
 message("-- config.cmake --")
 message("  MSVC: ${MSVC}")
 message("  APPLE: ${APPLE}")
