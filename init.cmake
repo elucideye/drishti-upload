@@ -35,6 +35,9 @@ set(
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
+# HunterGate.cmake should be included by parent project. Parent project should
+# have this module anyway because it will be used in Hunter without
+# 'drishti-upload' submodule.
 HunterGate(
     URL "https://github.com/ruslo/hunter/archive/v0.20.6.tar.gz"
     SHA1 "d9771027e1b14b1281fc9c06bc05df47bd90503b"
