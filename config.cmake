@@ -37,11 +37,9 @@ option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
 option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
-option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
 
 list(APPEND OPENCV_CMAKE_ARGS
-  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
   BUILD_opencv_ts=OFF
   BUILD_opencv_python2=OFF
   BUILD_opencv_shape=OFF
