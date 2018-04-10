@@ -37,9 +37,11 @@ option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
 option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
+option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
 
 list(APPEND OPENCV_CMAKE_ARGS
+  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
   BUILD_opencv_ts=OFF
   BUILD_opencv_python2=OFF
   BUILD_opencv_shape=OFF
@@ -121,15 +123,12 @@ set(OGLES_GPGPU_CMAKE_ARGS
 
 set(AGLET_CMAKE_ARGS AGLET_OPENGL_ES3=${use_opengl_es3})
 
-if(APPLE OR ${is_linux} OR MSVC)
-  hunter_config(Jpeg VERSION 9b-p1)
-endif()
-
 hunter_config(ARM_NEON_2_x86_SSE VERSION 1.0.0-p0)
 hunter_config(Boost VERSION ${drishti_boost_version})
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
 hunter_config(GTest VERSION 1.8.0-hunter-p5)
-hunter_config(OpenCV VERSION 3.0.0-p11 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
+hunter_config(Jpeg VERSION 9b-p3)
+hunter_config(OpenCV VERSION 3.4.1-p1 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 
 set(qt_cmake_args "")
