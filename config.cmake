@@ -162,7 +162,7 @@ hunter_config(glm VERSION 0.9.8.5) # eos
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nanoflann VERSION 1.2.3-p0) # eos
 hunter_config(nlohmann_json VERSION 2.1.1-p1)
-hunter_config(ogles_gpgpu VERSION 0.2.8 CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
+hunter_config(ogles_gpgpu VERSION ${HUNTER_ogles_gpgpu_VERSION} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
