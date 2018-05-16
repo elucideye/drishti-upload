@@ -149,7 +149,7 @@ endif()
 hunter_config(Qt VERSION ${qt_version} CMAKE_ARGS ${qt_cmake_args})
 
 hunter_config(RapidXML VERSION 1.13)
-hunter_config(aglet VERSION 1.2.0 CMAKE_ARGS ${AGLET_CMAKE_ARGS})
+hunter_config(aglet VERSION ${HUNTER_aglet_VERSION} CMAKE_ARGS ${AGLET_CMAKE_ARGS}) # test only, use latest
 hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.28)
 hunter_config(dlib VERSION ${dlib_version} CMAKE_ARGS ${dlib_cmake_args})
