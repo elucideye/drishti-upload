@@ -39,7 +39,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 # have this module anyway because it will be used in Hunter without
 # 'drishti-upload' submodule.
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.20.72.tar.gz"
-    SHA1 "bd3cb40902ccf2fdde1d0cc71d5a7acd24a0696c"
+    URL "https://github.com/ruslo/hunter/archive/v0.21.2.tar.gz"
+    SHA1 "a0fa4d9d12a7e59ea118798fedeaad59c2893b04"
     FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
 )
