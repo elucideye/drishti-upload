@@ -92,7 +92,7 @@ set(XGBOOST_CMAKE_ARGS
   XGBOOST_USE_HALF=ON
   )
 
-option(DRISHTI_ACF_USE_SUBMODULE "Use ACF as a submodule" OFF)
+option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" OFF)
 
 set(acf_cmake_args
   ACF_BUILD_OGLES_GPGPU=ON
@@ -168,7 +168,7 @@ hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
 hunter_config(xgboost VERSION 0.40-p10 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
-if(DRISHTI_ACF_USE_SUBMODULE)
+if(DRISHTI_ACF_AS_SUBMODULE)
   if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
     hunter_config(acf GIT_SUBMODULE "src/3rdparty/acf" CMAKE_ARGS ${acf_cmake_args})
   endif()
