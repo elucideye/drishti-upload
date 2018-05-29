@@ -173,7 +173,12 @@ if(DRISHTI_ACF_AS_SUBMODULE)
     hunter_config(acf GIT_SUBMODULE "src/3rdparty/acf" CMAKE_ARGS ${acf_cmake_args})
   endif()
 else()
-  hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
+# ACF from direct URL:
+  set(acf_url "https://github.com/elucideye/acf/archive/v0.1.12.tar.gz")
+  set(acf_sha1 "f0ee6ba5dfd9655bfd529d335e32750db7e68c3b")
+  hunter_config(acf URL ${acf_url} SHA1 ${acf_sha1}  CMAKE_ARGS ${acf_cmake_args})
+# ACF from Hunter
+#  hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
 endif()
 
 # experimental: lock verison but not used for CI builds
