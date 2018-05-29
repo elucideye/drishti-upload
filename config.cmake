@@ -92,7 +92,7 @@ set(XGBOOST_CMAKE_ARGS
   XGBOOST_USE_HALF=ON
   )
 
-option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" ON)
+option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" OFF)
 
 set(acf_cmake_args
   ACF_BUILD_OGLES_GPGPU=ON
