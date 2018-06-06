@@ -40,7 +40,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 # 'drishti-upload' submodule.  This call *is* used for the CI builds/tests
 # of the drishti repository.
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.21.19.tar.gz"
-    SHA1 "5ead1e069b437930d0de8a21824b20fb52b37b50"
+    URL "https://github.com/ruslo/hunter/archive/v0.22.3.tar.gz"
+    SHA1 "46089aabb7c8cc181a70a7a61699f526c116cedf"
     FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
 )

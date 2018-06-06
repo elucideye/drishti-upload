@@ -70,14 +70,6 @@ set(dlib_cmake_args
   HUNTER_INSTALL_LICENSE_FILES=dlib/LICENSE.txt
   )
 
-if(ANDROID)
-  # https://travis-ci.org/ingenue/hunter/jobs/287844545
-  # Will be fixed in Android NDK 17
-  set(dlib_version 19.2-p1)
-else()
-  set(dlib_version 19.6-p2)
-endif()
-
 # Maintain hunter default args (no testing, license name) and eliminate
 # eigen fortrn dependencies
 set(EIGEN_CMAKE_ARGS
@@ -152,7 +144,7 @@ hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION ${HUNTER_aglet_VERSION} CMAKE_ARGS ${AGLET_CMAKE_ARGS}) # test only, use latest
 hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.28)
-hunter_config(dlib VERSION ${dlib_version} CMAKE_ARGS ${dlib_cmake_args})
+hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
 hunter_config(eigen3-nnls VERSION 1.0.1) # eos
@@ -161,7 +153,6 @@ hunter_config(glfw VERSION 3.3.0-p4)
 hunter_config(glm VERSION 0.9.8.5) # eos
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nanoflann VERSION 1.2.3-p0) # eos
-hunter_config(nlohmann_json VERSION 2.1.1-p1)
 hunter_config(ogles_gpgpu VERSION ${HUNTER_ogles_gpgpu_VERSION} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
