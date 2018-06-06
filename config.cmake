@@ -52,8 +52,6 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_SHARED_LIBS=OFF
 )
 
-set(drishti_boost_version 1.64.0)
-
 set(dlib_cmake_args
   DLIB_HEADER_ONLY=OFF  #all previous builds were header on, so that is the default
   DLIB_ENABLE_ASSERTS=OFF #must be set on/off or debug/release build will differ and config will not match one
@@ -116,7 +114,6 @@ set(OGLES_GPGPU_CMAKE_ARGS
 set(AGLET_CMAKE_ARGS AGLET_OPENGL_ES3=${use_opengl_es3})
 
 hunter_config(ARM_NEON_2_x86_SSE VERSION 1.0.0-p0)
-hunter_config(Boost VERSION ${drishti_boost_version})
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
 hunter_config(GTest VERSION 1.8.0-hunter-p11)
 hunter_config(Jpeg VERSION 9b-p3)
