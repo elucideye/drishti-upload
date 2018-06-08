@@ -81,7 +81,6 @@ elseif(IOS)
 elseif(APPLE)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      BUILD_JPEG=OFF ## HUNTER
       HAVE_CUBLAS=NO
       HAVE_CUDA=NO
       HAVE_CUFFT=NO
@@ -91,14 +90,14 @@ elseif(APPLE)
       WITH_QTKIT=NO
   )
 elseif(${is_linux})
-  list(
-      APPEND OPENCV_CMAKE_ARGS
-      BUILD_JPEG=OFF
-  )
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
   )
+endif()
+
+if((APPLE OR is_linux) AND NOT IOS)
+  list(APPEND OPENCV_CMAKE_ARGS BUILD_JPEG=OFF)
 endif()
 
 # "Include Video for Windows support"
