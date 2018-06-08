@@ -73,12 +73,10 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(APPLE)
   list(
@@ -91,20 +89,24 @@ elseif(APPLE)
       HAVE_OPENCL=NO
       WITH_OPENCL=NO
       WITH_QTKIT=NO
-      WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(${is_linux})
   list(
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_VFW=ON             # "Include Video for Windows support"
   )
+endif()
+
+# "Include Video for Windows support"
+if(MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_VFW=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_VFW=OFF)
 endif()
 
 # "Include Video 4 Linux support"
