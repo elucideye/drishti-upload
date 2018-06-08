@@ -72,6 +72,7 @@ set(OPENCV_CMAKE_ARGS
   WITH_PNG=ON             # "Include PNG support"
   WITH_PVAPI=OFF          # "Include Prosilica GigE support"
   WITH_QT=OFF             # "Build with Qt Backend support"
+  WITH_QTKIT=NO
   WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
   WITH_TIFF=OFF           # "Include TIFF support"
   WITH_UNICAP=OFF         # "Include Unicap support (GPL)"
@@ -81,14 +82,6 @@ set(OPENCV_CMAKE_ARGS
   WITH_XIMEA=OFF          # "Include XIMEA cameras support"
   WITH_XINE=OFF           # "Include Xine support (GPL)"
 )
-
-### OpenCV
-if(APPLE AND NOT IOS)
-  list(
-      APPEND OPENCV_CMAKE_ARGS
-      WITH_QTKIT=NO
-  )
-endif()
 
 if((APPLE OR is_linux) AND NOT IOS)
   list(APPEND OPENCV_CMAKE_ARGS BUILD_JPEG=OFF)
