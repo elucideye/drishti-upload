@@ -10,6 +10,8 @@ message("  IOS: ${IOS}")
 message("  is_linux: ${is_linux}")
 message("  XCODE: ${XCODE}")
 
+option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
+
 set(OPENCV_CMAKE_ARGS
   #### Repeat HUNTER ARGS ###
   BUILD_DOCS=OFF
@@ -23,6 +25,14 @@ set(OPENCV_CMAKE_ARGS
   BUILD_TIFF=OFF ## HUNTER
   BUILD_PNG=OFF  ## HUNTER
   ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
+
+  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
+  BUILD_opencv_ts=OFF
+  BUILD_opencv_python2=OFF
+  BUILD_opencv_shape=OFF
+  BUILD_opencv_superres=OFF
+  HAVE_OPENCL=OFF
+  BUILD_EIGEN=OFF  ### for convenient linking
 
   ### Custom ARGS ###
   WITH_1394=OFF           # "Include IEEE1394 support"
@@ -158,18 +168,7 @@ option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
 option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
-option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
-
-list(APPEND OPENCV_CMAKE_ARGS
-  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
-  BUILD_opencv_ts=OFF
-  BUILD_opencv_python2=OFF
-  BUILD_opencv_shape=OFF
-  BUILD_opencv_superres=OFF
-  HAVE_OPENCL=OFF
-  BUILD_EIGEN=OFF  ### for convenient linking
-)
 
 set(dlib_cmake_args
   DLIB_HEADER_ONLY=OFF  #all previous builds were header on, so that is the default
