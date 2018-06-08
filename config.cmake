@@ -73,7 +73,6 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
@@ -86,7 +85,6 @@ if(ANDROID)
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
@@ -105,7 +103,6 @@ elseif(APPLE)
       HAVE_CUFFT=NO
       HAVE_EIGEN=NO
       HAVE_OPENCL=NO
-      WITH_AVFOUNDATION=ON    # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=ON            # "Include JPEG support"
@@ -122,7 +119,6 @@ elseif(${is_linux})
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=ON            # "Include JPEG support" (Jasper depends on Jpeg)
@@ -135,7 +131,6 @@ elseif(${is_linux})
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=ON           # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
@@ -151,6 +146,13 @@ if(ANDROID OR IOS)
   list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=ON)
 else()
   list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=OFF)
+endif()
+
+# "Use AVFoundation for Video I/O"
+if(APPLE AND NOT IOS)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_AVFOUNDATION=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_AVFOUNDATION=OFF)
 endif()
 
 option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
