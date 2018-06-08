@@ -71,13 +71,7 @@ set(OPENCV_CMAKE_ARGS
 
 ### OpenCV
 if(ANDROID)
-  list(
-      APPEND OPENCV_CMAKE_ARGS
-  )
 elseif(IOS)
-  list(
-      APPEND OPENCV_CMAKE_ARGS
-  )
 elseif(APPLE)
   list(
       APPEND OPENCV_CMAKE_ARGS
@@ -91,9 +85,6 @@ elseif(APPLE)
   )
 elseif(${is_linux})
 elseif(MSVC)
-  list(
-      APPEND OPENCV_CMAKE_ARGS
-  )
 endif()
 
 if((APPLE OR is_linux) AND NOT IOS)
