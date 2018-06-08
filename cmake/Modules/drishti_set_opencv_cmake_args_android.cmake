@@ -15,7 +15,6 @@ macro(drishti_set_opencv_cmake_args_android)
 
       ### Custom ARGS ###
       WITH_1394=OFF           # "Include IEEE1394 support"
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_CARBON=OFF         # "Use Carbon for UI instead of Cocoa"
       WITH_CLP=OFF            # "Include Clp support (EPL)"
       WITH_CSTRIPES=OFF       # "Include C= support"
@@ -62,6 +61,7 @@ macro(drishti_set_opencv_cmake_args_android)
 
       # Diff start {
       ENABLE_NEON=ON
+      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
