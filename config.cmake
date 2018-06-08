@@ -28,6 +28,7 @@ set(OPENCV_CMAKE_ARGS
   BUILD_PNG=OFF
   BUILD_opencv_python2=OFF
 
+  ### Custom ARGS ###
   BUILD_ANDROID_SERVICE=OFF
   ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
   BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
@@ -37,7 +38,7 @@ set(OPENCV_CMAKE_ARGS
   HAVE_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
 
-  ### Custom ARGS ###
+  ### Custom ARGS (WITH_*) ###
   WITH_1394=OFF           # "Include IEEE1394 support"
   WITH_CARBON=OFF         # "Use Carbon for UI instead of Cocoa"
   WITH_CLP=OFF            # "Include Clp support (EPL)"
