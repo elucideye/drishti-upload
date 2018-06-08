@@ -73,13 +73,11 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(APPLE)
@@ -93,7 +91,6 @@ elseif(APPLE)
       HAVE_OPENCL=NO
       WITH_OPENCL=NO
       WITH_QTKIT=NO
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(${is_linux})
@@ -101,15 +98,20 @@ elseif(${is_linux})
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      WITH_V4L=ON             # "Include Video 4 Linux support"
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=ON             # "Include Video for Windows support"
   )
+endif()
+
+# "Include Video 4 Linux support"
+if(is_linux)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_V4L=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_V4L=OFF)
 endif()
 
 # "Include Intel TBB support"
