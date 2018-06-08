@@ -93,6 +93,19 @@ elseif(MSVC)
   message("MSVC ===========================================================================")
   include(drishti_set_opencv_cmake_args_windows)
   drishti_set_opencv_cmake_args_windows()
+  list(
+      APPEND OPENCV_CMAKE_ARGS
+      ENABLE_NEON=OFF
+      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
+      WITH_DSHOW=ON           # "Build VideoIO with DirectShow support"
+      WITH_JASPER=ON          # "Include JPEG2K support"
+      WITH_JPEG=OFF           # "Include JPEG support"
+      WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
+      WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
+      WITH_TBB=ON             # "Include Intel TBB support"
+      WITH_V4L=OFF            # "Include Video 4 Linux support"
+      WITH_VFW=ON             # "Include Video for Windows support"
+  )
 endif()
 
 option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
