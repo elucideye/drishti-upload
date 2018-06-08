@@ -36,6 +36,7 @@ set(OPENCV_CMAKE_ARGS
   BUILD_opencv_shape=OFF
   BUILD_opencv_superres=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
+  BUILD_LIST=core,imgproc,videoio,highgui,videostab,objdetect
 
   ### Custom ARGS (WITH_*) ###
   WITH_1394=OFF           # "Include IEEE1394 support"
