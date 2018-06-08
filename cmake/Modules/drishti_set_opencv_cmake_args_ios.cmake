@@ -52,7 +52,6 @@ macro(drishti_set_opencv_cmake_args_ios)
       WITH_OPENNI2=OFF        # "Include OpenNI2 support"
       WITH_OPENNI=OFF         # "Include OpenNI support"
       WITH_PNG=ON             # "Include PNG support"
-      WITH_PTHREADS_PF=OFF     # "Use pthreads-based parallel_for"
       WITH_PVAPI=OFF          # "Include Prosilica GigE support"
       WITH_QT=OFF             # "Build with Qt Backend support"
       WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
@@ -66,5 +65,9 @@ macro(drishti_set_opencv_cmake_args_ios)
       WITH_WIN32UI=OFF        # "Build with Win32 UI Backend support"
       WITH_XIMEA=OFF          # "Include XIMEA cameras support"
       WITH_XINE=OFF           # "Include Xine support (GPL)"
+
+      # Diff start {
+      WITH_PTHREADS_PF=OFF     # "Use pthreads-based parallel_for"
+      # Diff end {
     )
 endmacro()
