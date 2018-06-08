@@ -74,6 +74,21 @@ elseif(${is_linux})
   message("is_linux =======================================================================")
   include(drishti_set_opencv_cmake_args_nix)
   drishti_set_opencv_cmake_args_nix()
+  list(
+      APPEND OPENCV_CMAKE_ARGS
+      BUILD_JPEG=OFF
+      BUILD_opencv_ts=OFF
+      ENABLE_NEON=OFF
+      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
+      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
+      WITH_JASPER=ON          # "Include JPEG2K support"
+      WITH_JPEG=ON            # "Include JPEG support" (Jasper depends on Jpeg)
+      WITH_LIBV4L=ON          # "Use libv4l for Video 4 Linux support"
+      WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
+      WITH_TBB=ON             # "Include Intel TBB support"
+      WITH_V4L=ON             # "Include Video 4 Linux support"
+      WITH_VFW=OFF            # "Include Video for Windows support"
+  )
 elseif(MSVC)
   message("MSVC ===========================================================================")
   include(drishti_set_opencv_cmake_args_windows)
