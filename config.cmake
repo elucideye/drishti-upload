@@ -35,7 +35,6 @@ set(OPENCV_CMAKE_ARGS
   BUILD_opencv_ts=OFF
   BUILD_opencv_shape=OFF
   BUILD_opencv_superres=OFF
-  HAVE_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
 
   ### Custom ARGS (WITH_*) ###
@@ -87,10 +86,6 @@ set(OPENCV_CMAKE_ARGS
 if(APPLE AND NOT IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      HAVE_CUBLAS=NO
-      HAVE_CUDA=NO
-      HAVE_CUFFT=NO
-      HAVE_EIGEN=NO
       WITH_QTKIT=NO
   )
 endif()
