@@ -6,7 +6,6 @@ macro(drishti_set_opencv_cmake_args_android)
       BUILD_PERF_TESTS=OFF
       BUILD_opencv_apps=OFF
       BUILD_EXAMPLES=OFF
-      ENABLE_NEON=ON
       BUILD_ANDROID_SERVICE=OFF
       BUILD_ANDROID_EXAMPLES=OFF
       BUILD_ZLIB=OFF ## HUNTER
@@ -37,9 +36,6 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_INTELPERC=OFF      # "Include Intel Perceptual Computing support"
       WITH_IPP=OFF            # "Include Intel IPP support"
       WITH_IPP_A=OFF          # "Include Intel IPP_A support"
-      WITH_JASPER=OFF         # "Include JPEG2K support"
-      WITH_JPEG=OFF           # "Include JPEG support"
-      WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_MSMF=OFF           # "Build VideoIO with Media Foundation support"
       WITH_NVCUVID=OFF        # "Include NVidia Video Decoding library support"
       WITH_OPENCL=OFF         # "Include OpenCL Runtime support"
@@ -55,10 +51,8 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_PVAPI=OFF          # "Include Prosilica GigE support"
       WITH_QT=OFF             # "Build with Qt Backend support"
       WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
-      WITH_TBB=OFF            # "Include Intel TBB support"
       WITH_TIFF=OFF           # "Include TIFF support"
       WITH_UNICAP=OFF         # "Include Unicap support (GPL)"
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=OFF            # "Include Video for Windows support"
       WITH_VTK=OFF            # "Include VTK library support (and build opencv_viz module eiher)"
       WITH_WEBP=OFF           # "Include WebP support"
@@ -67,7 +61,13 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_XINE=OFF           # "Include Xine support (GPL)"
 
       # Diff start {
+      ENABLE_NEON=ON
+      WITH_JASPER=OFF         # "Include JPEG2K support"
+      WITH_JPEG=OFF           # "Include JPEG support"
+      WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=ON     # "Use pthreads-based parallel_for"
+      WITH_TBB=OFF            # "Include Intel TBB support"
+      WITH_V4L=OFF            # "Include Video 4 Linux support"
       # Diff end {
     )
 endmacro()
