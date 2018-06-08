@@ -70,9 +70,7 @@ set(OPENCV_CMAKE_ARGS
 )
 
 ### OpenCV
-if(ANDROID)
-elseif(IOS)
-elseif(APPLE)
+if(APPLE AND NOT IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
       HAVE_CUBLAS=NO
@@ -83,8 +81,6 @@ elseif(APPLE)
       WITH_OPENCL=NO
       WITH_QTKIT=NO
   )
-elseif(${is_linux})
-elseif(MSVC)
 endif()
 
 if((APPLE OR is_linux) AND NOT IOS)
