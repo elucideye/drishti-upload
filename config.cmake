@@ -77,8 +77,6 @@ if(APPLE AND NOT IOS)
       HAVE_CUDA=NO
       HAVE_CUFFT=NO
       HAVE_EIGEN=NO
-      HAVE_OPENCL=NO
-      WITH_OPENCL=NO
       WITH_QTKIT=NO
   )
 endif()
@@ -170,7 +168,6 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_opencv_shape=OFF
   BUILD_opencv_superres=OFF
   HAVE_OPENCL=OFF
-  WITH_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
   BUILD_SHARED_LIBS=OFF
 )
