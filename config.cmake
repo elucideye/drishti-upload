@@ -14,21 +14,24 @@ option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 
 set(OPENCV_CMAKE_ARGS
   #### Repeat HUNTER ARGS ###
-  BUILD_DOCS=OFF
-  BUILD_TESTS=OFF
-  BUILD_PERF_TESTS=OFF
-  BUILD_opencv_apps=OFF
-  BUILD_EXAMPLES=OFF
-  BUILD_ANDROID_SERVICE=OFF
+  # * https://github.com/ruslo/hunter/blob/master/cmake/projects/OpenCV/hunter.cmake
+  # NOTE: In general there is no need to specify default CMake arguments of
+  # package, they will be inherited.
   BUILD_ANDROID_EXAMPLES=OFF
-  BUILD_ZLIB=OFF ## HUNTER
-  BUILD_TIFF=OFF ## HUNTER
-  BUILD_PNG=OFF  ## HUNTER
-  ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
+  BUILD_DOCS=OFF
+  BUILD_EXAMPLES=OFF
+  BUILD_PERF_TESTS=OFF
+  BUILD_TESTS=OFF
+  BUILD_opencv_apps=OFF
+  BUILD_ZLIB=OFF
+  BUILD_TIFF=OFF
+  BUILD_PNG=OFF
+  BUILD_opencv_python2=OFF
 
+  BUILD_ANDROID_SERVICE=OFF
+  ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
   BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
   BUILD_opencv_ts=OFF
-  BUILD_opencv_python2=OFF
   BUILD_opencv_shape=OFF
   BUILD_opencv_superres=OFF
   HAVE_OPENCL=OFF
