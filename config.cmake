@@ -94,7 +94,6 @@ elseif(${is_linux})
   list(
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
-      BUILD_opencv_ts=OFF
   )
 elseif(MSVC)
   list(
