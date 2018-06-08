@@ -22,7 +22,6 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_CUDA=OFF           # "Include NVidia Cuda Runtime support"
       WITH_CUFFT=OFF          # "Include NVidia Cuda Fast Fourier Transform (FFT) library support"
       WITH_DIRECTX=OFF        # "Include DirectX support"
-      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_EIGEN=OFF          # "Include Eigen2/Eigen3 support"
       WITH_FFMPEG=OFF         # "Include FFMPEG support"
       WITH_GDAL=OFF           # "Include GDAL Support"
@@ -52,7 +51,6 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
       WITH_TIFF=OFF           # "Include TIFF support"
       WITH_UNICAP=OFF         # "Include Unicap support (GPL)"
-      WITH_VFW=OFF            # "Include Video for Windows support"
       WITH_VTK=OFF            # "Include VTK library support (and build opencv_viz module eiher)"
       WITH_WEBP=OFF           # "Include WebP support"
       WITH_WIN32UI=OFF        # "Build with Win32 UI Backend support"
@@ -62,12 +60,14 @@ macro(drishti_set_opencv_cmake_args_android)
       # Diff start {
       ENABLE_NEON=ON
       WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
+      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=ON     # "Use pthreads-based parallel_for"
       WITH_TBB=OFF            # "Include Intel TBB support"
       WITH_V4L=OFF            # "Include Video 4 Linux support"
+      WITH_VFW=OFF            # "Include Video for Windows support"
       # Diff end {
     )
 endmacro()
