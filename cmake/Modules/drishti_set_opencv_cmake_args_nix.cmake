@@ -15,7 +15,6 @@ macro(drishti_set_opencv_cmake_args_nix)
 
       ### Custom ARGS ###
       WITH_1394=OFF           # "Include IEEE1394 support"
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_CARBON=OFF         # "Use Carbon for UI instead of Cocoa"
       WITH_CLP=OFF            # "Include Clp support (EPL)"
       WITH_CSTRIPES=OFF       # "Include C= support"
@@ -23,7 +22,6 @@ macro(drishti_set_opencv_cmake_args_nix)
       WITH_CUDA=OFF           # "Include NVidia Cuda Runtime support"
       WITH_CUFFT=OFF          # "Include NVidia Cuda Fast Fourier Transform (FFT) library support"
       WITH_DIRECTX=OFF        # "Include DirectX support"
-      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_EIGEN=OFF          # "Include Eigen2/Eigen3 support"
       WITH_FFMPEG=OFF         # "Include FFMPEG support"
       WITH_GDAL=OFF           # "Include GDAL Support"
@@ -53,7 +51,6 @@ macro(drishti_set_opencv_cmake_args_nix)
       WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
       WITH_TIFF=OFF           # "Include TIFF support"
       WITH_UNICAP=OFF         # "Include Unicap support (GPL)"
-      WITH_VFW=OFF            # "Include Video for Windows support"
       WITH_VTK=OFF            # "Include VTK library support (and build opencv_viz module eiher)"
       WITH_WEBP=OFF           # "Include WebP support"
       WITH_WIN32UI=OFF        # "Build with Win32 UI Backend support"
@@ -64,12 +61,15 @@ macro(drishti_set_opencv_cmake_args_nix)
       BUILD_JPEG=OFF 
       BUILD_opencv_ts=OFF
       ENABLE_NEON=OFF
+      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
+      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=ON            # "Include JPEG support" (Jasper depends on Jpeg)
       WITH_LIBV4L=ON          # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
       WITH_TBB=ON             # "Include Intel TBB support"
       WITH_V4L=ON             # "Include Video 4 Linux support"
+      WITH_VFW=OFF            # "Include Video for Windows support"
       # Diff end {
     )
 endmacro()
