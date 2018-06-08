@@ -58,16 +58,6 @@ macro(drishti_set_opencv_cmake_args_android)
       WITH_XINE=OFF           # "Include Xine support (GPL)"
 
       # Diff start {
-      ENABLE_NEON=ON
-      WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
-      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
-      WITH_JASPER=OFF         # "Include JPEG2K support"
-      WITH_JPEG=OFF           # "Include JPEG support"
-      WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
-      WITH_PTHREADS_PF=ON     # "Use pthreads-based parallel_for"
-      WITH_TBB=OFF            # "Include Intel TBB support"
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
-      WITH_VFW=OFF            # "Include Video for Windows support"
       # Diff end {
     )
 endmacro()
