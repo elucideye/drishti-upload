@@ -73,7 +73,6 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=ON     # "Use pthreads-based parallel_for"
       WITH_TBB=OFF            # "Include Intel TBB support"
@@ -83,7 +82,6 @@ if(ANDROID)
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF     # "Use pthreads-based parallel_for"
       WITH_TBB=OFF            # "Include Intel TBB support"
@@ -99,7 +97,6 @@ elseif(APPLE)
       HAVE_CUFFT=NO
       HAVE_EIGEN=NO
       HAVE_OPENCL=NO
-      WITH_JPEG=ON            # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_OPENCL=NO
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
@@ -113,7 +110,6 @@ elseif(${is_linux})
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      WITH_JPEG=ON            # "Include JPEG support" (Jasper depends on Jpeg)
       WITH_LIBV4L=ON          # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
       WITH_TBB=ON             # "Include Intel TBB support"
@@ -123,13 +119,19 @@ elseif(${is_linux})
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
       WITH_TBB=ON             # "Include Intel TBB support"
       WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=ON             # "Include Video for Windows support"
   )
+endif()
+
+# "Include JPEG support"
+if(ANDROID OR IOS OR MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JPEG=OFF)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JPEG=ON)
 endif()
 
 # "Include JPEG2K support"
