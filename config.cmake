@@ -302,12 +302,3 @@ hunter_config(Lua VERSION 5.1.5-p3)
 hunter_config(SDL2 VERSION 2.0.4-urho-p4)
 
 # }
-
-# FIXME, waiting for release:
-# * https://github.com/jarro2783/cxxopts/issues/110#issuecomment-394909564
-hunter_config(
-    cxxopts
-    VERSION 2.1.1
-    URL https://github.com/jarro2783/cxxopts/archive/e725ea308468ab50751ba7f930842a4c061226e9.zip
-    SHA1 cbeec5576599d031f6f992d987e1f3575b3afee3
-)
