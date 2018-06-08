@@ -73,7 +73,6 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=ON     # "Use pthreads-based parallel_for"
@@ -84,7 +83,6 @@ if(ANDROID)
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JASPER=OFF         # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF     # "Use pthreads-based parallel_for"
@@ -101,7 +99,6 @@ elseif(APPLE)
       HAVE_CUFFT=NO
       HAVE_EIGEN=NO
       HAVE_OPENCL=NO
-      WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=ON            # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_OPENCL=NO
@@ -116,7 +113,6 @@ elseif(${is_linux})
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=ON            # "Include JPEG support" (Jasper depends on Jpeg)
       WITH_LIBV4L=ON          # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
@@ -127,7 +123,6 @@ elseif(${is_linux})
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      WITH_JASPER=ON          # "Include JPEG2K support"
       WITH_JPEG=OFF           # "Include JPEG support"
       WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
       WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
@@ -135,6 +130,13 @@ elseif(MSVC)
       WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=ON             # "Include Video for Windows support"
   )
+endif()
+
+# "Include JPEG2K support"
+if(ANDROID OR IOS)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JASPER=OFF)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JASPER=ON)
 endif()
 
 if(ANDROID OR IOS)
