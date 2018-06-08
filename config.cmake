@@ -10,47 +10,158 @@ message("  IOS: ${IOS}")
 message("  is_linux: ${is_linux}")
 message("  XCODE: ${XCODE}")
 
-### OpenCV
+option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
+
+set(OPENCV_CMAKE_ARGS
+  #### Repeat HUNTER ARGS ###
+  # * https://github.com/ruslo/hunter/blob/master/cmake/projects/OpenCV/hunter.cmake
+  # NOTE: In general there is no need to specify default CMake arguments of
+  # package, they will be inherited.
+  BUILD_ANDROID_EXAMPLES=OFF
+  BUILD_DOCS=OFF
+  BUILD_EXAMPLES=OFF
+  BUILD_PERF_TESTS=OFF
+  BUILD_TESTS=OFF
+  BUILD_opencv_apps=OFF
+  BUILD_ZLIB=OFF
+  BUILD_TIFF=OFF
+  BUILD_PNG=OFF
+  BUILD_opencv_python2=OFF
+
+  ### Custom ARGS ###
+  BUILD_ANDROID_SERVICE=OFF
+  ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
+  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
+  BUILD_opencv_ts=OFF
+  BUILD_opencv_shape=OFF
+  BUILD_opencv_superres=OFF
+  BUILD_EIGEN=OFF  ### for convenient linking
+  BUILD_LIST=core,imgproc,videoio,highgui,videostab,objdetect
+
+  ### Custom ARGS (WITH_*) ###
+  WITH_1394=OFF           # "Include IEEE1394 support"
+  WITH_CARBON=OFF         # "Use Carbon for UI instead of Cocoa"
+  WITH_CLP=OFF            # "Include Clp support (EPL)"
+  WITH_CSTRIPES=OFF       # "Include C= support"
+  WITH_CUBLAS=OFF         # "Include NVidia Cuda Basic Linear Algebra Subprograms (BLAS) library support"
+  WITH_CUDA=OFF           # "Include NVidia Cuda Runtime support"
+  WITH_CUFFT=OFF          # "Include NVidia Cuda Fast Fourier Transform (FFT) library support"
+  WITH_DIRECTX=OFF        # "Include DirectX support"
+  WITH_EIGEN=OFF          # "Include Eigen2/Eigen3 support"
+  WITH_FFMPEG=OFF         # "Include FFMPEG support"
+  WITH_GDAL=OFF           # "Include GDAL Support"
+  WITH_GIGEAPI=OFF        # "Include Smartek GigE support"
+  WITH_GPHOTO2=OFF        # "Include gPhoto2 library support"
+  WITH_GSTREAMER=OFF      # "Include Gstreamer support"
+  WITH_GSTREAMER_0_10=OFF # "Enable Gstreamer 0.10 support (instead of 1.x)"
+  WITH_GTK=OFF            # "Include GTK support"
+  WITH_GTK_2_X=OFF        # "Use GTK version 2"
+  WITH_INTELPERC=OFF      # "Include Intel Perceptual Computing support"
+  WITH_IPP=OFF            # "Include Intel IPP support"
+  WITH_IPP_A=OFF          # "Include Intel IPP_A support"
+  WITH_MSMF=OFF           # "Build VideoIO with Media Foundation support"
+  WITH_NVCUVID=OFF        # "Include NVidia Video Decoding library support"
+  WITH_OPENCL=OFF         # "Include OpenCL Runtime support"
+  WITH_OPENCLAMDBLAS=OFF  # "Include AMD OpenCL BLAS library support"
+  WITH_OPENCLAMDFFT=OFF   # "Include AMD OpenCL FFT library support"
+  WITH_OPENCL_SVM=OFF     # "Include OpenCL Shared Virtual Memory support"
+  WITH_OPENEXR=OFF        # "Include ILM support via OpenEXR"
+  WITH_OPENGL=OFF         # "Include OpenGL support"
+  WITH_OPENMP=OFF         # "Include OpenMP support"
+  WITH_OPENNI2=OFF        # "Include OpenNI2 support"
+  WITH_OPENNI=OFF         # "Include OpenNI support"
+  WITH_PNG=ON             # "Include PNG support"
+  WITH_PVAPI=OFF          # "Include Prosilica GigE support"
+  WITH_QT=OFF             # "Build with Qt Backend support"
+  WITH_QTKIT=NO
+  WITH_QUICKTIME=OFF      # "Use QuickTime for Video I/O insted of QTKit"
+  WITH_TIFF=OFF           # "Include TIFF support"
+  WITH_UNICAP=OFF         # "Include Unicap support (GPL)"
+  WITH_VTK=OFF            # "Include VTK library support (and build opencv_viz module eiher)"
+  WITH_WEBP=OFF           # "Include WebP support"
+  WITH_WIN32UI=OFF        # "Build with Win32 UI Backend support"
+  WITH_XIMEA=OFF          # "Include XIMEA cameras support"
+  WITH_XINE=OFF           # "Include Xine support (GPL)"
+)
+
+if((APPLE OR is_linux) AND NOT IOS)
+  list(APPEND OPENCV_CMAKE_ARGS BUILD_JPEG=OFF)
+endif()
+
+# "Include Video for Windows support"
+if(MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_VFW=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_VFW=OFF)
+endif()
+
+# "Include Video 4 Linux support"
+if(is_linux)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_V4L=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_V4L=OFF)
+endif()
+
+# "Include Intel TBB support"
+if(is_linux OR MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_TBB=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_TBB=OFF)
+endif()
+
+# "Use pthreads-based parallel_for"
 if(ANDROID)
-  message("ANDROID ========================================================================")
-  include(drishti_set_opencv_cmake_args_android)
-  drishti_set_opencv_cmake_args_android()
-elseif(IOS)
-  message("IOS ============================================================================")
-  include(drishti_set_opencv_cmake_args_ios)
-  drishti_set_opencv_cmake_args_ios()
-elseif(APPLE)
-  message("APPLE ==========================================================================")
-  include(drishti_set_opencv_cmake_args_osx)
-  drishti_set_opencv_cmake_args_osx()
-elseif(${is_linux})
-  message("is_linux =======================================================================")
-  include(drishti_set_opencv_cmake_args_nix)
-  drishti_set_opencv_cmake_args_nix()
-elseif(MSVC)
-  message("MSVC ===========================================================================")
-  include(drishti_set_opencv_cmake_args_windows)
-  drishti_set_opencv_cmake_args_windows()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_PTHREADS_PF=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_PTHREADS_PF=OFF)
+endif()
+
+# "Use libv4l for Video 4 Linux support"
+if(is_linux)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_LIBV4L=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_LIBV4L=OFF)
+endif()
+
+# "Include JPEG support"
+if(ANDROID OR IOS OR MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JPEG=OFF)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JPEG=ON)
+endif()
+
+# "Include JPEG2K support"
+if(ANDROID OR IOS)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JASPER=OFF)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_JASPER=ON)
+endif()
+
+if(ANDROID OR IOS)
+  list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=OFF)
+endif()
+
+# "Use AVFoundation for Video I/O"
+if(APPLE AND NOT IOS)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_AVFOUNDATION=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_AVFOUNDATION=OFF)
+endif()
+
+# "Build VideoIO with DirectShow support"
+if(MSVC)
+  list(APPEND OPENCV_CMAKE_ARGS WITH_DSHOW=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS WITH_DSHOW=OFF)
 endif()
 
 option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
 option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
 option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
 option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
-option(DRISHTI_BUILD_OPENCV_WORLD "Build OpenCV world (monolithic lib)" ON)
 option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
-
-list(APPEND OPENCV_CMAKE_ARGS
-  BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
-  BUILD_opencv_ts=OFF
-  BUILD_opencv_python2=OFF
-  BUILD_opencv_shape=OFF
-  BUILD_opencv_superres=OFF
-  HAVE_OPENCL=OFF
-  WITH_OPENCL=OFF
-  BUILD_EIGEN=OFF  ### for convenient linking
-  BUILD_SHARED_LIBS=OFF
-)
 
 set(dlib_cmake_args
   DLIB_HEADER_ONLY=OFF  #all previous builds were header on, so that is the default
