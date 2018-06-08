@@ -169,7 +169,6 @@ list(APPEND OPENCV_CMAKE_ARGS
   BUILD_opencv_superres=OFF
   HAVE_OPENCL=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
-  BUILD_SHARED_LIBS=OFF
 )
 
 set(dlib_cmake_args
