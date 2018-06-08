@@ -73,7 +73,6 @@ set(OPENCV_CMAKE_ARGS
 if(ANDROID)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      ENABLE_NEON=ON
       WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=OFF         # "Include JPEG2K support"
@@ -87,7 +86,6 @@ if(ANDROID)
 elseif(IOS)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      ENABLE_NEON=ON
       WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=OFF         # "Include JPEG2K support"
@@ -102,7 +100,6 @@ elseif(APPLE)
   list(
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF ## HUNTER
-      ENABLE_NEON=OFF
       HAVE_CUBLAS=NO
       HAVE_CUDA=NO
       HAVE_CUFFT=NO
@@ -125,7 +122,6 @@ elseif(${is_linux})
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
       BUILD_opencv_ts=OFF
-      ENABLE_NEON=OFF
       WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
@@ -139,7 +135,6 @@ elseif(${is_linux})
 elseif(MSVC)
   list(
       APPEND OPENCV_CMAKE_ARGS
-      ENABLE_NEON=OFF
       WITH_AVFOUNDATION=OFF   # "Use AVFoundation for Video I/O"
       WITH_DSHOW=ON           # "Build VideoIO with DirectShow support"
       WITH_JASPER=ON          # "Include JPEG2K support"
@@ -150,6 +145,12 @@ elseif(MSVC)
       WITH_V4L=OFF            # "Include Video 4 Linux support"
       WITH_VFW=ON             # "Include Video for Windows support"
   )
+endif()
+
+if(ANDROID OR IOS)
+  list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=ON)
+else()
+  list(APPEND OPENCV_CMAKE_ARGS ENABLE_NEON=OFF)
 endif()
 
 option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
