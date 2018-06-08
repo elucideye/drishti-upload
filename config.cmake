@@ -71,9 +71,6 @@ set(OPENCV_CMAKE_ARGS
 
 ### OpenCV
 if(ANDROID)
-  message("ANDROID ========================================================================")
-  include(drishti_set_opencv_cmake_args_android)
-  drishti_set_opencv_cmake_args_android()
   list(
       APPEND OPENCV_CMAKE_ARGS
       ENABLE_NEON=ON
@@ -88,9 +85,6 @@ if(ANDROID)
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(IOS)
-  message("IOS ============================================================================")
-  include(drishti_set_opencv_cmake_args_ios)
-  drishti_set_opencv_cmake_args_ios()
   list(
       APPEND OPENCV_CMAKE_ARGS
       ENABLE_NEON=ON
@@ -105,9 +99,6 @@ elseif(IOS)
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(APPLE)
-  message("APPLE ==========================================================================")
-  include(drishti_set_opencv_cmake_args_osx)
-  drishti_set_opencv_cmake_args_osx()
   list(
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF ## HUNTER
@@ -130,9 +121,6 @@ elseif(APPLE)
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(${is_linux})
-  message("is_linux =======================================================================")
-  include(drishti_set_opencv_cmake_args_nix)
-  drishti_set_opencv_cmake_args_nix()
   list(
       APPEND OPENCV_CMAKE_ARGS
       BUILD_JPEG=OFF
@@ -149,9 +137,6 @@ elseif(${is_linux})
       WITH_VFW=OFF            # "Include Video for Windows support"
   )
 elseif(MSVC)
-  message("MSVC ===========================================================================")
-  include(drishti_set_opencv_cmake_args_windows)
-  drishti_set_opencv_cmake_args_windows()
   list(
       APPEND OPENCV_CMAKE_ARGS
       ENABLE_NEON=OFF
