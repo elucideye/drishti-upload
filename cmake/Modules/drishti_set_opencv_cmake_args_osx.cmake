@@ -58,24 +58,6 @@ macro(drishti_set_opencv_cmake_args_osx)
       WITH_XINE=OFF           # "Include Xine support (GPL)"
 
       # Diff start {
-      BUILD_JPEG=OFF ## HUNTER
-      ENABLE_NEON=OFF
-      HAVE_CUBLAS=NO
-      HAVE_CUDA=NO
-      HAVE_CUFFT=NO
-      HAVE_EIGEN=NO
-      HAVE_OPENCL=NO
-      WITH_AVFOUNDATION=ON    # "Use AVFoundation for Video I/O"
-      WITH_DSHOW=OFF          # "Build VideoIO with DirectShow support"
-      WITH_JASPER=ON          # "Include JPEG2K support"
-      WITH_JPEG=ON            # "Include JPEG support"
-      WITH_LIBV4L=OFF         # "Use libv4l for Video 4 Linux support"
-      WITH_OPENCL=NO
-      WITH_PTHREADS_PF=OFF    # "Use pthreads-based parallel_for"
-      WITH_QTKIT=NO
-      WITH_TBB=OFF            # "Include Intel TBB support"
-      WITH_V4L=OFF            # "Include Video 4 Linux support"
-      WITH_VFW=OFF            # "Include Video for Windows support"
       # Diff end {
     )
 endmacro()
