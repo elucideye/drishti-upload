@@ -35,6 +35,12 @@ set(
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
+if(DRISHTI_HUNTER_CONFIG_MINIMAL)
+  set(config_name "minimal")
+else()
+  set(config_name "config")
+endif()
+
 # HunterGate.cmake should be included by parent project. Parent project should
 # have this module anyway because it will be used in Hunter without
 # 'drishti-upload' submodule.  This call *is* used for the CI builds/tests
@@ -42,5 +48,5 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 HunterGate(
     URL "https://github.com/ruslo/hunter/archive/v0.22.12.tar.gz"
     SHA1 "34d985ce72c67441644664a2e3f7ab0822613768"
-    FILEPATH "${CMAKE_CURRENT_LIST_DIR}/config.cmake"
+    FILEPATH "${CMAKE_CURRENT_LIST_DIR}/${config_name}.cmake"
 )

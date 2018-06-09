@@ -1,3 +1,5 @@
+message("Using config 'minimal'")
+
 hunter_config(
     xgboost
     VERSION 0.40-p10
