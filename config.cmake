@@ -32,9 +32,6 @@ set(OPENCV_CMAKE_ARGS
   BUILD_ANDROID_SERVICE=OFF
   ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
   BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
-  BUILD_opencv_ts=OFF
-  BUILD_opencv_shape=OFF
-  BUILD_opencv_superres=OFF
   BUILD_EIGEN=OFF  ### for convenient linking
   BUILD_LIST=core,imgproc,videoio,highgui,videostab,objdetect
 
