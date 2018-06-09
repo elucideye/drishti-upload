@@ -157,12 +157,6 @@ else()
   list(APPEND OPENCV_CMAKE_ARGS WITH_DSHOW=OFF)
 endif()
 
-option(DRISHTI_BUILD_OGLES_GPGPU "Build with OGLES_GPGPU" ON)
-option(DRISHTI_BUILD_ACF "Drishti ACF lib" ON)
-option(DRISHTI_OPENGL_ES3 "Support OpenGL ES 3.0 (default 2.0)" OFF)
-option(DRISHTI_BUILD_MIN_SIZE "Build minimum size lib (exclude training)" ON)
-option(DRISHTI_SERIALIZE_WITH_CVMATIO "Perform serialization with cvmatio" OFF)
-
 set(dlib_cmake_args
   DLIB_HEADER_ONLY=OFF  #all previous builds were header on, so that is the default
   DLIB_ENABLE_ASSERTS=OFF #must be set on/off or debug/release build will differ and config will not match one
