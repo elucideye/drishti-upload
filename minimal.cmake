@@ -8,3 +8,11 @@ hunter_config(
     XGBOOST_USE_CEREAL=ON
     XGBOOST_DO_LEAN=ON
 )
+
+hunter_config(
+    dlib
+    VERSION
+    ${HUNTER_dlib_VERSION}
+    CMAKE_ARGS
+    DLIB_USE_BLAS=OFF
+)
