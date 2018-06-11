@@ -6,11 +6,3 @@ hunter_config(
     XGBOOST_USE_CEREAL=ON
     XGBOOST_DO_LEAN=ON
 )
-
-hunter_config(
-    acf
-    VERSION
-    ${HUNTER_acf_VERSION}
-    CMAKE_ARGS
-    ACF_BUILD_OGLES_GPGPU=ON
-)
