@@ -1,5 +1,12 @@
 message(">:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>: ${CMAKE_MODULE_PATH} <:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:")
 
+### Toggle OpenGL ES 3.0 ###
+if(DRISHTI_OPENGL_ES3)
+  set(use_opengl_es3 ON)
+else()
+  set(use_opengl_es3 OFF)
+endif()
+
 string(COMPARE EQUAL "${CMAKE_SYSTEM_NAME}" "Linux" is_linux)
 
 message("-- config.cmake --")
@@ -201,13 +208,6 @@ else()
   list(APPEND XGBOOST_CMAKE_ARGS XGBOOST_DO_LEAN=OFF)
 endif()
 
-### Toggle OpenGL ES 3.0 ###
-if(DRISHTI_OPENGL_ES3)
-  set(use_opengl_es3 ON)
-else()
-  set(use_opengl_es3 OFF)
-endif()
-
 set(OGLES_GPGPU_CMAKE_ARGS
   OGLES_GPGPU_VERBOSE=OFF
   OGLES_GPGPU_OPENGL_ES3=${use_opengl_es3}
@@ -244,6 +244,12 @@ hunter_config(aglet VERSION ${HUNTER_aglet_VERSION} CMAKE_ARGS ${AGLET_CMAKE_ARG
 hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.28)
 hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
+
+set(drishti_url "https://github.com/elucideye/drishti/archive/v0.12.3.tar.gz")
+set(drishti_sha1 db886d27ba2d9477ea6c41b642aacf92a8fb1c18)
+set(drishti_cmake_args DRISHTI_OPENGL_ES3=${use_opengl_es3})
+
+hunter_config(drishti URL ${drishti_url} SHA1 ${drishti_sha1} CMAKE_ARGS ${drishti_cmake_args})
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
 hunter_config(eigen3-nnls VERSION 1.0.1) # eos
