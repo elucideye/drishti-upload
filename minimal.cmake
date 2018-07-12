@@ -16,3 +16,7 @@ hunter_config(
     CMAKE_ARGS
     DLIB_USE_BLAS=OFF
 )
+
+set(acf_url "https://github.com/elucideye/acf/archive/v0.1.16.tar.gz")
+set(acf_sha1 "d1f681d6e678fcc45777e780f40fc196aad4c726")
+hunter_config(acf URL ${acf_url} SHA1 ${acf_sha1})
