@@ -270,8 +270,8 @@ if(DRISHTI_ACF_AS_SUBMODULE)
   endif()
 else()
 # ACF from direct URL:
-  set(acf_url "https://github.com/elucideye/acf/archive/v0.1.15.tar.gz")
-  set(acf_sha1 "3769df6be614f897ab380ac4339d1e4c340d82b7")
+  set(acf_url "https://github.com/elucideye/acf/archive/v0.1.16.tar.gz")
+  set(acf_sha1 "d1f681d6e678fcc45777e780f40fc196aad4c726")
   hunter_config(acf URL ${acf_url} SHA1 ${acf_sha1}  CMAKE_ARGS ${acf_cmake_args})
 # ACF from Hunter
 #  hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
