@@ -189,9 +189,7 @@ set(EIGEN_CMAKE_ARGS
 set(XGBOOST_CMAKE_ARGS
   XGBOOST_USE_CEREAL=ON
   XGBOOST_USE_HALF=ON
-  )
-
-option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" OFF)
+)
 
 set(acf_cmake_args
   ACF_BUILD_OGLES_GPGPU=ON
@@ -245,11 +243,25 @@ hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.28)
 hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
 
-set(drishti_url "https://github.com/elucideye/drishti/archive/v0.12.3.tar.gz")
-set(drishti_sha1 db886d27ba2d9477ea6c41b642aacf92a8fb1c18)
+option(DRISHTI_DRISHTI_AS_SELF "Use drishti as GIT_SELF" OFF)
+option(DRISHTI_DRISHTI_AS_SUBMODULE "Use drishti as submodule" OFF)
+
 set(drishti_cmake_args DRISHTI_OPENGL_ES3=${use_opengl_es3})
 
-hunter_config(drishti URL ${drishti_url} SHA1 ${drishti_sha1} CMAKE_ARGS ${drishti_cmake_args})
+if(DRISHTI_DRISHTI_AS_SUBMODULE)
+  if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
+    hunter_config(drishti GIT_SUBMODULE "src/3rdparty/drishti" CMAKE_ARGS ${drishti_cmake_args})
+  endif()
+elseif(DRISHTI_DRISHTI_AS_SELF)
+  hunter_config(drishti GIT_SELF CMAKE_ARGS ${drishti_cmake_args})
+else()
+  set(drishti_url "https://github.com/elucideye/drishti/archive/v0.12.4.tar.gz")
+  set(drishti_sha1 "02af741ea2d3d4456ba79d9dac8bb2ff46a35e4a")
+  hunter_config(drishti URL ${drishti_url} SHA1 ${drishti_sha1} CMAKE_ARGS ${drishti_cmake_args})
+  # drishti from Hunter
+  # hunter_config(drishti VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
+endif()
+
 hunter_config(drishti_assets VERSION 1.8)
 hunter_config(drishti_faces VERSION 1.2)
 hunter_config(eigen3-nnls VERSION 1.0.1) # eos
@@ -264,17 +276,22 @@ hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
 hunter_config(xgboost VERSION 0.40-p10 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
+option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" OFF)
+option(DRISHTI_ACF_AS_SELF "Use ACF as a GI_SELF" OFF)
+
 if(DRISHTI_ACF_AS_SUBMODULE)
   if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
     hunter_config(acf GIT_SUBMODULE "src/3rdparty/acf" CMAKE_ARGS ${acf_cmake_args})
   endif()
+elseif(DRISHTI_ACF_AS_SELF)
+  hunter_config(acf GIT_SELF CMAKE_ARGS ${acf_cmake_args})
 else()
-# ACF from direct URL:
+  # ACF from direct URL:
   set(acf_url "https://github.com/elucideye/acf/archive/v0.1.16.tar.gz")
   set(acf_sha1 "d1f681d6e678fcc45777e780f40fc196aad4c726")
-  hunter_config(acf URL ${acf_url} SHA1 ${acf_sha1}  CMAKE_ARGS ${acf_cmake_args})
-# ACF from Hunter
-#  hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
+  hunter_config(acf URL ${acf_url} SHA1 ${acf_sha1} CMAKE_ARGS ${acf_cmake_args})
+  # ACF from Hunter
+  # hunter_config(acf VERSION ${HUNTER_acf_VERSION} CMAKE_ARGS ${acf_cmake_args})
 endif()
 
 # experimental: lock verison but not used for CI builds
