@@ -46,7 +46,7 @@ endif()
 # 'drishti-upload' submodule.  This call *is* used for the CI builds/tests
 # of the drishti repository.
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.22.12.tar.gz"
-    SHA1 "34d985ce72c67441644664a2e3f7ab0822613768"
+    URL "https://github.com/ruslo/hunter/archive/v0.22.29.tar.gz"
+    SHA1 "61e9583824b956b064aa8819c56c4b134bae86bc"
     FILEPATH "${CMAKE_CURRENT_LIST_DIR}/${config_name}.cmake"
 )
