@@ -270,7 +270,12 @@ hunter_config(glfw VERSION 3.3.0-p4)
 hunter_config(glm VERSION 0.9.8.5) # eos
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nanoflann VERSION 1.2.3-p0) # eos
-hunter_config(ogles_gpgpu VERSION ${HUNTER_ogles_gpgpu_VERSION} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
+
+set(ogles_gpgpu_url "https://github.com/hunter-packages/ogles_gpgpu/archive/v0.3.1.tar.gz")
+set(ogles_gpgpu_sha1 "62f31be45711fa4d4789eb5ff1621d5386eb3433")
+hunter_config(ogles_gpgpu URL ${ogles_gpgpu_url} SHA1 ${ogles_gpgpu_sha1} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
+#hunter_config(ogles_gpgpu VERSION ${HUNTER_ogles_gpgpu_VERSION} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
+
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
