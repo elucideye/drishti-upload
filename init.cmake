@@ -33,6 +33,8 @@ set(
     "Hunter passwords"
 )
 
+option(HUNTER_GIT_SELF_IGNORE_UNTRACKED "GIT_SELF: Ingored untracked files" ON)
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake/Modules")
 
 if(DRISHTI_HUNTER_CONFIG_MINIMAL)
@@ -46,7 +48,7 @@ endif()
 # 'drishti-upload' submodule.  This call *is* used for the CI builds/tests
 # of the drishti repository.
 HunterGate(
-    URL "https://github.com/ruslo/hunter/archive/v0.23.3.tar.gz"
-    SHA1 "2c421912930d183c24512590014f955ff073424b"
+    URL "https://github.com/ruslo/hunter/archive/v0.23.14.tar.gz"
+    SHA1 "f58bcf274f29097ac380bfe4955d2a66f077e741"
     FILEPATH "${CMAKE_CURRENT_LIST_DIR}/${config_name}.cmake"
 )
