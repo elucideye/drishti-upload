@@ -228,7 +228,11 @@ hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
 option(DRISHTI_DRISHTI_AS_SELF "Use drishti as GIT_SELF" OFF)
 option(DRISHTI_DRISHTI_AS_SUBMODULE "Use drishti as submodule" OFF)
 
-set(drishti_cmake_args DRISHTI_OPENGL_ES3=${use_opengl_es3})
+set(
+    drishti_cmake_args
+    DRISHTI_OPENGL_ES3=${use_opengl_es3}
+    DRISHTI_BUILD_SHARED_SDK=${DRISHTI_BUILD_SHARED_SDK}
+)
 
 if(DRISHTI_DRISHTI_AS_SUBMODULE)
   if(NOT DRISHTI_UPLOAD_IGNORE_SUBMODULES)
