@@ -253,7 +253,7 @@ hunter_config(drishti_faces VERSION 1.2)
 hunter_config(eigen3-nnls VERSION 1.0.1) # eos
 hunter_config(eos VERSION 0.12.1) # eos
 hunter_config(glfw VERSION 3.3.0-p4)
-hunter_config(glm VERSION 0.9.8.5) # eos
+hunter_config(glm VERSION 0.9.9.0) # eos
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nanoflann VERSION 1.2.3-p0) # eos
 
