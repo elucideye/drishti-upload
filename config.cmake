@@ -217,7 +217,7 @@ hunter_config(ARM_NEON_2_x86_SSE VERSION 1.0.0-p0)
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
 hunter_config(GTest VERSION 1.8.0-hunter-p11)
 hunter_config(Jpeg VERSION 9b-p3)
-hunter_config(OpenCV VERSION 3.4.6-p0 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
+hunter_config(OpenCV VERSION 4.0.0-p0 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 hunter_config(RapidXML VERSION 1.13)
 hunter_config(aglet VERSION ${HUNTER_aglet_VERSION} CMAKE_ARGS ${AGLET_CMAKE_ARGS}) # test only, use latest
