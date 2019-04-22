@@ -40,7 +40,7 @@ set(OPENCV_CMAKE_ARGS
   ANDROID_EXAMPLES_WITH_LIBS=OFF    # "Build binaries of Android examples with native libraries"
   BUILD_opencv_world=${DRISHTI_BUILD_OPENCV_WORLD}
   BUILD_EIGEN=OFF  ### for convenient linking
-  BUILD_LIST=core,imgproc,videoio,highgui,video,videostab,objdetect
+  BUILD_LIST=core,imgproc,videoio,highgui,video,videostab,objdetect,photo
 
   ### Custom ARGS (WITH_*) ###
   WITH_1394=OFF           # "Include IEEE1394 support"
