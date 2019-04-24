@@ -267,8 +267,6 @@ hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
 hunter_config(xgboost VERSION 0.40-p10 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
 
-hunter_config(Boost VERSION 1.69.0-p0 CMAKE_ARGS DUMMY=1)
-
 option(DRISHTI_ACF_AS_SUBMODULE "Use ACF as a submodule" OFF)
 option(DRISHTI_ACF_AS_SELF "Use ACF as a GI_SELF" OFF)
 
