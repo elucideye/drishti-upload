@@ -1,11 +1,23 @@
 message(">:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>:>: ${CMAKE_MODULE_PATH} <:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:<:")
 
 ### Toggle OpenGL ES 3.0 ###
-if(DRISHTI_OPENGL_ES3)
+
+if(DEFINED HUNTER_PROJECT_NAME)
+  message(STATUS "Configure Hunter with HUNTER_PROJECT_NAME = ${HUNTER_PROJECT_NAME}")
+endif()
+
+if(${HUNTER_PROJECT_NAME}_OPENGL_ES2)
+  set(use_opengl_es2 ON)
+  set(use_opengl_es3 OFF)
+elseif(${HUNTER_PROJECT_NAME}_OPENGL_ES3)
+  set(use_opengl_es2 OFF)
   set(use_opengl_es3 ON)
 else()
+  set(use_opengl_es2 OFF)
   set(use_opengl_es3 OFF)
 endif()
+message(STATUS "OpenGL ES 2.0 = " ${use_opengl_es2})
+message(STATUS "OpenGL ES 3.0 = " ${use_opengl_es3})
 
 string(COMPARE EQUAL "${CMAKE_SYSTEM_NAME}" "Linux" is_linux)
 
@@ -198,6 +210,8 @@ set(acf_cmake_args
   ACF_SERIALIZE_WITH_CVMATIO=${DRISHTI_SERIALIZE_WITH_CVMATIO}
   ACF_SERIALIZE_WITH_CEREAL=ON
   ACF_BUILD_OGLES_GPGPU=${DRISHTI_BUILD_OGLES_GPGPU}
+  ACF_OPENGL_ES2=${use_opengl_es2}
+  ACF_OPENGL_ES3=${use_opengl_es3}
 )
 
 if(DRISHTI_BUILD_MIN_SIZE)
@@ -206,12 +220,6 @@ else()
   list(APPEND XGBOOST_CMAKE_ARGS XGBOOST_DO_LEAN=OFF)
 endif()
 
-set(OGLES_GPGPU_CMAKE_ARGS
-  OGLES_GPGPU_VERBOSE=OFF
-  OGLES_GPGPU_OPENGL_ES3=${use_opengl_es3}
-)
-
-set(AGLET_CMAKE_ARGS AGLET_OPENGL_ES3=${use_opengl_es3})
 
 hunter_config(ARM_NEON_2_x86_SSE VERSION 1.0.0-p0)
 hunter_config(Eigen VERSION 3.3.1-p4 CMAKE_ARGS ${EIGEN_CMAKE_ARGS})
@@ -220,7 +228,19 @@ hunter_config(Jpeg VERSION 9b-p3)
 hunter_config(OpenCV VERSION 4.0.0-p0 CMAKE_ARGS "${OPENCV_CMAKE_ARGS}")
 hunter_config(PNG VERSION 1.6.26-p1)
 hunter_config(RapidXML VERSION 1.13)
-hunter_config(aglet VERSION ${HUNTER_aglet_VERSION} CMAKE_ARGS ${AGLET_CMAKE_ARGS}) # test only, use latest
+
+set(AGLET_CMAKE_ARGS
+  AGLET_OPENGL_ES2=${use_opengl_es2}
+  AGLET_OPENGL_ES3=${use_opengl_es3}
+  )
+if(ANDROID OR ${HUNTER_PROJECT_NAME}_USE_EGL)
+  list(APPEND AGLET_CMAKE_ARGS AGLET_USE_EGL=ON)
+endif()
+
+set(aglet_url "https://github.com/elucideye/aglet/archive/v1.3.3.tar.gz")
+set(aglet_sha1 432ad86638c30d221ad444ab73af214c2fe5a180)
+hunter_config(aglet URL ${aglet_url} SHA1 ${aglet_sha1} CMAKE_ARGS ${AGLET_CMAKE_ARGS})
+
 hunter_config(cereal VERSION 1.2.2-p0)
 hunter_config(cvmatio VERSION 1.0.28)
 hunter_config(dlib VERSION ${HUNTER_dlib_VERSION} CMAKE_ARGS ${dlib_cmake_args})
@@ -230,6 +250,7 @@ option(DRISHTI_DRISHTI_AS_SUBMODULE "Use drishti as submodule" OFF)
 
 set(
     drishti_cmake_args
+    DRISHTI_OPENGL_ES2=${use_opengl_es2}
     DRISHTI_OPENGL_ES3=${use_opengl_es3}
     DRISHTI_BUILD_SHARED_SDK=${DRISHTI_BUILD_SHARED_SDK}
 )
@@ -257,10 +278,15 @@ hunter_config(glm VERSION 0.9.9.0) # eos
 hunter_config(half VERSION 1.1.0-p1)
 hunter_config(nanoflann VERSION 1.2.3-p0) # eos
 
-set(ogles_gpgpu_url "https://github.com/hunter-packages/ogles_gpgpu/archive/v0.3.1.tar.gz")
-set(ogles_gpgpu_sha1 "62f31be45711fa4d4789eb5ff1621d5386eb3433")
+set(OGLES_GPGPU_CMAKE_ARGS
+  OGLES_GPGPU_VERBOSE=OFF
+  OGLES_GPGPU_OPENGL_ES2=${use_opengl_es2}
+  OGLES_GPGPU_OPENGL_ES3=${use_opengl_es3}
+)
+
+set(ogles_gpgpu_url "https://github.com/hunter-packages/ogles_gpgpu/archive/v0.3.10.tar.gz")
+set(ogles_gpgpu_sha1 "57436e14af1947498d1659524d8bfe3897a09e00")
 hunter_config(ogles_gpgpu URL ${ogles_gpgpu_url} SHA1 ${ogles_gpgpu_sha1} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
-#hunter_config(ogles_gpgpu VERSION ${HUNTER_ogles_gpgpu_VERSION} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
 
 hunter_config(spdlog VERSION 0.13.0-p0)
 hunter_config(sse2neon VERSION 1.0.0-p0)
