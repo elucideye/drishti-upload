@@ -54,6 +54,11 @@ set(OPENCV_CMAKE_ARGS
   BUILD_EIGEN=OFF  ### for convenient linking
   BUILD_LIST=core,imgproc,videoio,highgui,video,videostab,objdetect,photo
 
+#  BUILD_PROTOBUF=OFF
+#  BUILD_LIBPROTOBUF_FROM_SOURCES=NO
+#  WITH_PROTOBUF=OFF
+  WITH_LAPACK=OFF
+
   ### Custom ARGS (WITH_*) ###
   WITH_1394=OFF           # "Include IEEE1394 support"
   WITH_CARBON=OFF         # "Use Carbon for UI instead of Cocoa"
