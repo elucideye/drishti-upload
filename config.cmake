@@ -293,7 +293,7 @@ set(ogles_gpgpu_url "https://github.com/hunter-packages/ogles_gpgpu/archive/v0.3
 set(ogles_gpgpu_sha1 "57436e14af1947498d1659524d8bfe3897a09e00")
 hunter_config(ogles_gpgpu URL ${ogles_gpgpu_url} SHA1 ${ogles_gpgpu_sha1} CMAKE_ARGS ${OGLES_GPGPU_CMAKE_ARGS})
 
-hunter_config(spdlog VERSION 0.13.0-p0)
+hunter_config(spdlog VERSION 1.3.1-p0) # 0.13.0-p0
 hunter_config(sse2neon VERSION 1.0.0-p0)
 hunter_config(thread-pool-cpp VERSION 1.1.0)
 hunter_config(xgboost VERSION 0.40-p10 CMAKE_ARGS ${XGBOOST_CMAKE_ARGS})
